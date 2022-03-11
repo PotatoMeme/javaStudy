@@ -380,5 +380,77 @@ public class BasicFunc {
         System.out.println(i*1000);
         sc.close();
     }
+    public static void tuto_52() {
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNextInt()) {// 계속 입력
+            System.out.println(sc.nextInt()*1000);
+        }
+        sc.close();
+    }
+    public static void tuto_53() {
+        try {
+            File file = new File("tuto_48.txt");
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextInt()) {
+                System.out.println(sc.nextInt()*1000);
+            }
+            sc.close();
+        } catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+    // 클래스와 인스턴스 그리고 객체
+    public static void tuto_54() {
+        tuto_54_sum(3,4);
+        tuto_54_avg(3,4);
+    }
+    public static void tuto_54_avg(int left, int right) {
+        System.out.println((left+right)/2.0);
+    }
+    public static void tuto_54_sum(int left, int right) {
+        System.out.println(left+right);
+    }
 
+    public static void tuto_55() {
+        Tuto_55_Calculator subClass = new Tuto_55_Calculator();
+        subClass.setOprands(3,4);
+        subClass.sum();
+        subClass.avg();
+    }
+    // 클래스 맴버와 인스턴스 맴버
+    public static void tuto_56() {
+        Tuto_56_Calculator subClass1 = new Tuto_56_Calculator(3,4);
+        Tuto_56_Calculator subClass2 = new Tuto_56_Calculator(4,5);
+        subClass1.printArgument();
+        subClass2.printArgument();
+    }
+    // 유효범위
+    public static void tuto_57() {
+
+    }
+}
+class Tuto_55_Calculator{
+    int left, right;
+
+    public void setOprands(int left, int right){
+        this.left = left;
+        this.right = right;
+    }
+    public void sum(){
+        System.out.println(this.left+this.right);
+    }
+
+    public void avg(){
+        System.out.println((this.left+this.right)/2);
+    }
+}
+class Tuto_56_Calculator{
+    int left, right;
+    Tuto_56_Calculator(int left, int right){
+        this.left = left;
+        this.right = right;
+    }
+    public void printArgument(){
+        System.out.println(left + " " + right);
+    }
 }
