@@ -426,7 +426,43 @@ public class BasicFunc {
     }
     // 유효범위
     public static void tuto_57() {
-
+        for (int i = 0; i < 5; i++) {
+            tuto_57_sub();
+            System.out.println(i);
+        }
+    }
+    public static void tuto_57_sub() {
+        int i = 0;
+    }
+    static int tuto_58_argument;
+    public static void tuto_58() {
+        int i = 0;
+        for (tuto_58_argument = 0; tuto_58_argument < 5; tuto_58_argument++) {
+            tuto_58_sub();
+            System.out.println(tuto_58_argument);
+            i++;
+            if ( i == 8 ) break;
+        }
+    }
+    public static void tuto_58_sub() {
+        tuto_58_argument = 0;
+    }
+    static int tuto_59_argument = 5;
+    public static void tuto_59() {
+        tuto_59_sub1();
+    }
+    public static void tuto_59_sub1() {
+        int tuto_59_argument = 10;
+        tuto_59_sub2();
+    }
+    public static void tuto_59_sub2() {
+        System.out.println(tuto_59_argument);
+    }
+    // 초기화와 생성자
+    public static void tuto_60() {
+        Tuto_60_Calculator_Calculator tuto = new Tuto_60_Calculator_Calculator(1,4,5);
+        tuto.printArguments();
+       
     }
 }
 class Tuto_55_Calculator{
@@ -452,5 +488,22 @@ class Tuto_56_Calculator{
     }
     public void printArgument(){
         System.out.println(left + " " + right);
+    }
+}
+class Tuto_60_Calculator{
+    int left, right;
+    Tuto_60_Calculator(int left, int right){
+        this.left = left;
+        this.right = right;
+    }
+}
+class Tuto_60_Calculator_Calculator extends Tuto_60_Calculator {
+    int middle;
+    Tuto_60_Calculator_Calculator(int left, int right, int middle){
+        super(left,right);
+        this.middle = middle;
+    }
+    public void printArguments() {
+        System.out.println(this.left + " " + this.right + " " +this.middle);
     }
 }
