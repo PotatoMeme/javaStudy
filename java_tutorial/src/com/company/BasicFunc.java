@@ -419,8 +419,8 @@ public class BasicFunc {
     }
     // 클래스 맴버와 인스턴스 맴버
     public static void tuto_56() {
-        Tuto_56_Calculator subClass1 = new Tuto_56_Calculator(3,4);
-        Tuto_56_Calculator subClass2 = new Tuto_56_Calculator(4,5);
+        Tuto_55_Calculator subClass1 = new Tuto_55_Calculator(3,4);
+        Tuto_55_Calculator subClass2 = new Tuto_55_Calculator(4,5);
         subClass1.printArgument();
         subClass2.printArgument();
     }
@@ -460,50 +460,76 @@ public class BasicFunc {
     }
     // 초기화와 생성자
     public static void tuto_60() {
-        Tuto_60_Calculator_Calculator tuto = new Tuto_60_Calculator_Calculator(1,4,5);
+        Tuto_60_Calculator tuto = new Tuto_60_Calculator(1,4,5);
         tuto.printArguments();
-       
+
     }
+    // overriding
+    public static void tuto_61() {
+        Tuto_61_Calculator tuto = new Tuto_61_Calculator(1,4);
+        tuto.printArgument();
+    }
+    // overloading
+    public static void tuto_62() {
+        Tuto_55_Calculator tuto = new Tuto_55_Calculator();
+        tuto.setOprands(5,3);
+        tuto.printArgument();
+        tuto.setOprands();
+        tuto.printArgument();
+    }
+
+
 }
 class Tuto_55_Calculator{
     int left, right;
+    Tuto_55_Calculator(){ // overloading
+        this.left = 0;
+        this.right = 0;
+    }
 
-    public void setOprands(int left, int right){
+    Tuto_55_Calculator(int left, int right){ // overloading
+        this.left = left;
+        this.right = right;
+    }
+    public void setOprands(){ // overloading
+        this.left = 0;
+        this.right = 0;
+    }
+    public void setOprands(int left, int right){ // overloading
         this.left = left;
         this.right = right;
     }
     public void sum(){
         System.out.println(this.left+this.right);
     }
-
     public void avg(){
         System.out.println((this.left+this.right)/2);
-    }
-}
-class Tuto_56_Calculator{
-    int left, right;
-    Tuto_56_Calculator(int left, int right){
-        this.left = left;
-        this.right = right;
     }
     public void printArgument(){
         System.out.println(left + " " + right);
     }
 }
-class Tuto_60_Calculator{
-    int left, right;
-    Tuto_60_Calculator(int left, int right){
-        this.left = left;
-        this.right = right;
-    }
-}
-class Tuto_60_Calculator_Calculator extends Tuto_60_Calculator {
+
+class Tuto_60_Calculator extends Tuto_55_Calculator {
     int middle;
-    Tuto_60_Calculator_Calculator(int left, int right, int middle){
+    Tuto_60_Calculator(int left, int right, int middle){
         super(left,right);
         this.middle = middle;
     }
     public void printArguments() {
         System.out.println(this.left + " " + this.right + " " +this.middle);
     }
+}
+class Tuto_61_Calculator extends Tuto_55_Calculator {
+    Tuto_61_Calculator(int left, int right){
+        super(left,right);
+    }
+//    error / 자료형 String - > void
+//    public String printArgument(){
+//        return (left + " " + right);
+//    }
+    public void printArgument(){
+        System.out.println("결과 : "+left + " " + right);
+    }
+
 }
