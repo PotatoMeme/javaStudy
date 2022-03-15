@@ -477,7 +477,21 @@ public class BasicFunc {
         tuto.setOprands();
         tuto.printArgument();
     }
-
+    // 접근 제어자
+    public static void tuto_63() {
+        Tuto_62_Calculator tuto = new Tuto_62_Calculator(3);
+        //System.out.println("private/age : "+tuto.age);
+        System.out.println("public/getAge : "+ tuto.getAge() );
+        System.out.println("public/sex" + tuto.sex);
+    }
+    // abstract : 추상
+    public static void tuto_64() {
+        Tuto_64_Calculator_Sub tuto1 = new Tuto_64_Calculator_Sub();
+        //Tuto_64_Calculator tuto2 = new Tuto_64_Calculator();
+        System.out.println(tuto1.abFun());
+        tuto1.basicFun();
+    }
+    // final : 상속/변경을 금지하는 규제
 
 }
 class Tuto_55_Calculator{
@@ -531,5 +545,38 @@ class Tuto_61_Calculator extends Tuto_55_Calculator {
     public void printArgument(){
         System.out.println("결과 : "+left + " " + right);
     }
-
 }
+class Tuto_62_Calculator {
+    private int age;
+    public Boolean sex = true;
+    Tuto_62_Calculator(int age){this.age = age;}
+    public int getAge(){return age;}
+}
+abstract class Tuto_64_Calculator{
+    public abstract int abFun();
+    public void basicFun(){
+        System.out.println("world");
+    }
+}
+class Tuto_64_Calculator_Sub extends Tuto_64_Calculator{
+    public int abFun(){return 1;}
+}
+final class Tuto_65_Calculator{
+    static final double PI = 3.14;
+    int left, right;
+    public void setOprands(int left, int right) {
+        this.left = left;
+        this.right = right;
+        //Tuto_65_Calculator.PI = 6;
+    }
+    public void sum() {
+        System.out.println(this.left + this.right);
+    }
+    public void avg() {
+        System.out.println((this.left + this.right) / 2);
+    }
+    final public double getPi(){return Tuto_65_Calculator.PI;}
+}
+//class Tuto_65_Calculator_Sub extends Tuto_65_Calculator{
+//  double getPi(){return Tuto_65_Calculator.PI+3;}
+//}
