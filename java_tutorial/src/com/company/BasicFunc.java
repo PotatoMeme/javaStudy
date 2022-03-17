@@ -492,7 +492,40 @@ public class BasicFunc {
         tuto1.basicFun();
     }
     // final : 상속/변경을 금지하는 규제
+    public static void tuto_65() {
+        Tuto_65_Calculator tuto = new Tuto_65_Calculator();
+        tuto.setOprands(3,4);
+        tuto.sum();
+        tuto.avg();
+        System.out.println(tuto.getPi());
+    }
+    // interface : abstract, final와 함께 대표적인 규제, 짜임세? 형식?
+    public static void tuto_66() {
+        Tuto_66_Calculator tuto = new Tuto_66_Calculator();
+        tuto.print("이것은 inteface 예제,");
+        tuto.println("인터페이스의 맴버는 반드시 public이다.");
+    }
+    //    abstract vs interface
+    //    인터페이스와 추상 클래스는 서로 비슷한 듯 다른 기능이다. 인터페이스는 클래스가 아닌 인터페이스라는 고유한 형태를 가지고 있는 반면
+    //    추상 클래스는 일반적인 클래스다. 또 인터페이스는 구체적인 로직이나 상태를 가지고 있을 수 없고, 추상 클래스는 구체적인 로직이나 상태를
+    //    가지고 있을 수 있다.
 
+    // Polymorphism ( 다형성이란 하나의 메소드나 클래스가 있을 때 이것들이 다양한 방법으로 동작하는 것을 의미
+    public static void tuto_67() {
+        tuto_67_sub(5);tuto_67_sub(3.14);
+        Tuto_67_Calculator_sub tuto1 = new Tuto_67_Calculator();
+        tuto1.print();//Calculator_print
+        //tuto1.test();// 실행 안됨
+        Tuto_67_Interface tuto2 = new Tuto_67_Calculator();
+        //tuto2.print();//실행 안됨
+        tuto2.test();// test
+    }
+    public static void tuto_67_sub(int a) {
+        System.out.println("정수형 매개변수 출력" + a);
+    }
+    public static void tuto_67_sub(double a) {
+        System.out.println("실수형 매개변수 출력" + a);
+    }
 }
 class Tuto_55_Calculator{
     int left, right;
@@ -580,3 +613,34 @@ final class Tuto_65_Calculator{
 //class Tuto_65_Calculator_Sub extends Tuto_65_Calculator{
 //  double getPi(){return Tuto_65_Calculator.PI+3;}
 //}
+interface Tuto_66_Interface_1{
+    public void print(String txt);
+}
+interface Tuto_66_Interface_2{
+    public void println(String txt);
+}
+interface Tuto_66_Interface_3 extends Tuto_66_Interface_2{
+    public void printA();
+}
+class Tuto_66_Calculator implements Tuto_66_Interface_1,Tuto_66_Interface_3{
+    public void print(String txt){
+        System.out.print(txt);
+    }
+    public void println(String txt){
+        System.out.println(txt);
+    }
+    public void printA(){
+        System.out.println('A');
+    }
+}
+class Tuto_67_Calculator_sub {
+    public void print(){System.out.println("sub_print");}
+}
+
+interface Tuto_67_Interface{
+    public void test();
+}
+class Tuto_67_Calculator extends Tuto_67_Calculator_sub implements Tuto_67_Interface{
+    public void print(){System.out.println("Calculator_print");}
+    public void test(){System.out.println("test");}
+}
