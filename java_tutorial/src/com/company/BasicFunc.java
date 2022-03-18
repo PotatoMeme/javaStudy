@@ -526,6 +526,77 @@ public class BasicFunc {
     public static void tuto_67_sub(double a) {
         System.out.println("실수형 매개변수 출력" + a);
     }
+    //  Exception , 예외
+    public static void tuto_68() {
+        tuto_68_sub1(3,0);
+        tuto_68_sub1(1,0);
+        tuto_68_sub1(2,1);
+        //--------------------------
+        try {
+            tuto_68_sub2("tuto_47");
+        } catch (FileNotFoundException e) {
+            System.out.println("tuto_48.txt 파일은 설정 파일 입니다. 이 파일이 프로잭트 루트 디렉토리에 존재해야 합니다.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //--------------------------
+        int a,b;
+        a = 10;
+        b = 0;
+        if (b==0){throw new ArithmeticException("0으로 나누는 것은 허용되지 않습니다.");}
+        tuto_68_sub1(a,b);
+
+    }
+    public static void tuto_68_sub1(int a , int b) {
+        int[] arr = new int[3];
+        arr[0]=0;
+        arr[1]=10;
+        arr[2]=20;
+        try {
+            System.out.print("계산결과는 ");
+            System.out.print(arr[a]/arr[b]);
+            System.out.print(" 입니다.");
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("ArrayIndexOutOfBoundsException");
+        } catch(ArithmeticException e){
+            System.out.println("ArithmeticException");
+        } catch(Exception e){
+            System.out.println("\n\ne.getMessage()\n"+e.getMessage());
+            System.out.println("\n\ne.toString()\n"+e.toString());
+            System.out.println("\n\ne.printStackTrace()");
+            e.printStackTrace();
+        } finally {
+            //예외와 상관없이 실행되는 로직
+            System.out.println("finally");
+            //예외와 상관없이 try 내의 구문이 실행되면 finally가 실행된다
+        }
+    }
+    public static void tuto_68_sub2(String name) throws IOException, FileNotFoundException {
+        //예외가 발생하면 이에 대한 처리를 최종 사용자에게 위임함
+        BufferedReader bReader = null;
+        String input = null;
+        bReader = new BufferedReader(new FileReader(name+".txt"));
+        input = bReader.readLine();
+        System.out.println(input);
+    }
+    public static void tuto_69(){
+        try {
+            throw new IOException();
+        } catch (IOException e) {
+            System.out.println("test");
+            e.printStackTrace();
+        }
+    }
+    public static void tuto_70(){
+
+        try {
+            throw new Tuto_70_Calculator("test");
+        } catch (Tuto_70_Calculator e) {
+            System.out.println("test");
+            e.printStackTrace();
+        }
+    }
+
 }
 class Tuto_55_Calculator{
     int left, right;
@@ -643,4 +714,12 @@ interface Tuto_67_Interface{
 class Tuto_67_Calculator extends Tuto_67_Calculator_sub implements Tuto_67_Interface{
     public void print(){System.out.println("Calculator_print");}
     public void test(){System.out.println("test");}
+}
+class Tuto_70_Calculator extends RuntimeException {
+    Tuto_70_Calculator(){
+        super();
+    }
+    Tuto_70_Calculator(String message){
+        super(message);
+    }
 }
