@@ -596,7 +596,108 @@ public class BasicFunc {
             e.printStackTrace();
         }
     }
+    // 상속
+    // class O {} == class O extends Object {}
+    public static void tuto_71(){
+        Tuto_55_Calculator tuto1 = new Tuto_55_Calculator();
+        Tuto_55_Calculator tuto2 = new Tuto_55_Calculator();
+        tuto1.setOprands(3,5);
+        tuto2.setOprands(3,5);
+        System.out.println(tuto1.toString());
+        System.out.println(tuto2.toString());
+        System.out.println(tuto1 == tuto2);
+        System.out.println(tuto1.equals(tuto2));
+        Tuto_71_Calculator tuto3 = new Tuto_71_Calculator();
+        Tuto_71_Calculator tuto4 = new Tuto_71_Calculator();
+        tuto3.setOprands(3,5);
+        tuto4.setOprands(3,5);
+        System.out.println(tuto3.toString());
+        System.out.println(tuto4.toString());
+        System.out.println(tuto3 == tuto4);
+        System.out.println(tuto3.equals(tuto4));
+    }
+    // finalize 객체가 소멸될 때 호출되기로 약속된 메소드 , 자동으로 해준다
+    // clone
+    public static void tuto_72(){
+        Tuto_72_Calculator tuto1 = new Tuto_72_Calculator("default_name");
+        try {
+            Tuto_72_Calculator tuto2 = (Tuto_72_Calculator)tuto1.clone();
+            System.out.println(tuto1.name);
+            System.out.println(tuto2.name);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+    // 상수
+    interface I_FRUIT{
+        int APPLE=1, PEACH=2, BANANA=3;
+    }
+    interface I_COMPANY{
+        int GOOGLE=1, APPLE=2, ORACLE=3;
+    }
+    public static void tuto_73(){
+        int type = I_FRUIT.APPLE;
+        switch(type){
+            case I_FRUIT.APPLE:
+                System.out.println(57+" kcal");
+                break;
+            case I_FRUIT.PEACH:
+                System.out.println(34+" kcal");
+                break;
+            case I_FRUIT.BANANA:
+                System.out.println(93+" kcal");
+                break;
+        }
+//        if(C_Fruit.APPLE == C_Company.APPLE){
+//            System.out.println("과일 애플과 회사 애플이 같다.");
+//        }// 오류 발생  서로 다른 카테고리의 상수에 대해서는 비교조차 금지
+    }
+    enum E_Fruit{
+        APPLE("red"), PEACH("pink"), BANANA("yellow");
+        //public String color; //가능
+        private String color;
+        E_Fruit(String color){
+            System.out.println("Call Constructor "+this);
+            this.color = color;
+        }
+        String getColor(){
+            return this.color;
+        }
+    }
+    enum E_Company{
+        GOOGLE, APPLE, ORACLE;
+    }
+    public static void tuto_74(){
+        E_Fruit type = E_Fruit.APPLE;
+        switch(type){
+            case APPLE:
+                //System.out.println(57+" kcal, "+E_Fruit.APPLE.color);
+                System.out.println(57+" kcal, "+E_Fruit.APPLE.getColor());
+                break;
+            case PEACH:
+                //System.out.println(34+" kcal"+E_Fruit.PEACH.color);
+                System.out.println(34+" kcal"+E_Fruit.PEACH.getColor());
+                break;
+            case BANANA:
+                //System.out.println(93+" kcal"+E_Fruit.BANANA.color);
+                System.out.println(93+" kcal"+E_Fruit.BANANA.getColor());
+                break;
+        }
+        for(E_Fruit f : E_Fruit.values()){
+            System.out.println(f+", "+f.getColor());
+        }
+    }
 
+}
+class C_Fruit{
+    public static final C_Fruit APPLE  = new C_Fruit();
+    public static final C_Fruit PEACH  = new C_Fruit();
+    public static final C_Fruit BANANA = new C_Fruit();
+}
+class C_Company{
+    public static final C_Company GOOGLE = new C_Company();
+    public static final C_Company APPLE = new C_Company();
+    public static final C_Company ORACLE = new C_Company();
 }
 class Tuto_55_Calculator{
     int left, right;
@@ -721,5 +822,23 @@ class Tuto_70_Calculator extends RuntimeException {
     }
     Tuto_70_Calculator(String message){
         super(message);
+    }
+}
+class Tuto_71_Calculator extends Tuto_55_Calculator {
+    public String toString(){
+        return "left : " + this.left + ", right : "+ this.right;
+    }
+    public boolean equals(Object obj) {
+        Tuto_71_Calculator _obj = (Tuto_71_Calculator)obj;
+        return (left == _obj.left)&&(right == _obj.right);
+    }
+}
+class Tuto_72_Calculator implements Cloneable {
+    String name;
+    Tuto_72_Calculator(String name){
+        this.name = name;
+    }
+    protected Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
 }
