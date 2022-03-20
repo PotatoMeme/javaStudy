@@ -628,7 +628,7 @@ public class BasicFunc {
             e.printStackTrace();
         }
     }
-    // 상수
+    // 상수와 enum
     interface I_FRUIT{
         int APPLE=1, PEACH=2, BANANA=3;
     }
@@ -687,6 +687,40 @@ public class BasicFunc {
             System.out.println(f+", "+f.getColor());
         }
     }
+    // 참조
+    public static void tuto_75(){
+        Tuto_55_Calculator tuto1 = new Tuto_55_Calculator(3,5);
+        Tuto_55_Calculator tuto2 = tuto1;
+        tuto2.setOprands(5,7);
+        tuto1.printArgument();
+        tuto2.printArgument();
+        tuto_75_sub1(tuto1);
+        tuto1.printArgument();
+        tuto2.printArgument();
+        tuto_75_sub2(tuto2);
+        tuto1.printArgument();
+        tuto2.printArgument();
+
+    }
+    public static void tuto_75_sub1(Tuto_55_Calculator tuto){
+        tuto.left = 7;
+    }
+    public static void tuto_75_sub2(Tuto_55_Calculator tuto){
+        tuto = new Tuto_55_Calculator(4,4);
+    }
+    // 제네릭 : 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미
+    public static void tuto_76(){
+        Tuto_76_Calculator1<String> tuto1 = new Tuto_76_Calculator1<String>();
+        tuto1.info = "name";
+        Tuto_76_Calculator1<Integer> tuto2 = new Tuto_76_Calculator1<Integer>();
+        tuto2.info = 7;
+        Tuto_76_Calculator2<Integer,String> tuto3 = new Tuto_76_Calculator2<Integer,String>();
+        tuto3.Id = 7;
+        tuto3.info = "name";
+        tuto1.<String>printInfo("name");
+
+    }
+
 
 }
 class C_Fruit{
@@ -841,4 +875,14 @@ class Tuto_72_Calculator implements Cloneable {
     protected Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
+}
+class Tuto_76_Calculator1<T>{
+    public T info;
+    public <U> void printInfo(U info){
+        System.out.println(info);
+    }
+}
+class Tuto_76_Calculator2<T,S>{
+    public T Id;
+    public S info;
 }
