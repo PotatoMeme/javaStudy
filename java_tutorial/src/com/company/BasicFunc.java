@@ -1,6 +1,6 @@
 package com.company;
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class BasicFunc {
     // 숫자와 문자
@@ -718,9 +718,124 @@ public class BasicFunc {
         tuto3.Id = 7;
         tuto3.info = "name";
         tuto1.<String>printInfo("name");
+    }
+    // 배열과 컬렉션즈 프레임워크
+    public static void tuto_77(){
+        String[] arrayObj = new String[2];
+        arrayObj[0] = "one";
+        arrayObj[1] = "two";
+        // arrayObj[2] = "three"; 오류가 발생한다.
+        for(int i=0; i<arrayObj.length; i++){
+            System.out.println(arrayObj[i]);
+        }
 
+        ArrayList al1 = new ArrayList();
+        al1.add("one");
+        al1.add("two");
+        al1.add("three");
+        for(int i=0; i<al1.size(); i++){
+            System.out.println(al1.get(i));
+        }
+
+        ArrayList<String> al2 = new ArrayList<String>();
+        al2.add("one");
+        al2.add("two");
+        al2.add("three");
+        for(int i=0; i<al2.size(); i++){
+            String val = al2.get(i);
+            System.out.println(val);
+        }
+        Iterator ai = al2.iterator();
+        while(ai.hasNext()){
+            System.out.println(ai.next());
+        }
+
+        HashSet<String> hs = new HashSet<String>();
+        hs.add("one");
+        hs.add("two");
+        hs.add("two");
+        hs.add("three");
+        hs.add("three");
+        hs.add("five");
+        Iterator hi = hs.iterator();
+        System.out.println("\nhashset");
+        while(hi.hasNext()){
+            System.out.println(hi.next());
+        }
     }
 
+    public static void tuto_78(){
+        HashSet<Integer> A = new HashSet<Integer>();
+        A.add(1);
+        A.add(2);
+        A.add(3);
+
+        HashSet<Integer> B = new HashSet<Integer>();
+        B.add(3);
+        B.add(4);
+        B.add(5);
+
+        HashSet<Integer> C = new HashSet<Integer>();
+        C.add(1);
+        C.add(2);
+
+        System.out.println(A.containsAll(B)); // false
+        System.out.println(A.containsAll(C)); // true
+
+        //A.addAll(B);
+        //A.retainAll(B);
+        //A.removeAll(B);
+
+        Iterator hi = A.iterator();
+        while(hi.hasNext()){
+            System.out.println(hi.next());
+        }
+    }
+    public static void tuto_79(){
+        HashMap<String, Integer> a = new HashMap<String, Integer>();
+        a.put("one", 1);
+        a.put("two", 2);
+        a.put("three", 3);
+        a.put("four", 4);
+        System.out.println(a.get("one"));
+        System.out.println(a.get("two"));
+        System.out.println(a.get("three"));
+
+        tuto_79_sub1(a);
+        tuto_79_sub2(a);
+    }
+    static void tuto_79_sub1(HashMap map){
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        for (Map.Entry<String, Integer> entry : entries) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+
+    static void tuto_79_sub2(HashMap map){
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        Iterator<Map.Entry<String, Integer>> i = entries.iterator();
+        while(i.hasNext()){
+            Map.Entry<String, Integer> entry = i.next();
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+    }
+    public static void tuto_80(){
+        List<Tuto_80_Calculator> computers = new ArrayList<Tuto_80_Calculator>();
+        computers.add(new Tuto_80_Calculator(500, "egoing"));
+        computers.add(new Tuto_80_Calculator(200, "leezche"));
+        computers.add(new Tuto_80_Calculator(3233, "graphittie"));
+        Iterator i = computers.iterator();
+        System.out.println("before");
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+        Collections.sort(computers);
+        System.out.println("\nafter");
+        i = computers.iterator();
+        while(i.hasNext()){
+            System.out.println(i.next());
+        }
+    }
 
 }
 class C_Fruit{
@@ -885,4 +1000,18 @@ class Tuto_76_Calculator1<T>{
 class Tuto_76_Calculator2<T,S>{
     public T Id;
     public S info;
+}
+class Tuto_80_Calculator implements Comparable{
+    int serial;
+    String owner;
+    Tuto_80_Calculator(int serial, String owner){
+        this.serial = serial;
+        this.owner = owner;
+    }
+    public int compareTo(Object o) {
+        return this.serial - ((Tuto_80_Calculator)o).serial;
+    }
+    public String toString(){
+        return serial+" "+owner;
+    }
 }
