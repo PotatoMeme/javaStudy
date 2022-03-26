@@ -4,9 +4,12 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         BasicFunc basicFunc = new BasicFunc();
-        basicFunc.tuto_80();
+        JumpToJava jj = new JumpToJava();
+        //basicFunc.tuto_80();
+
+        jj.func04();
         return;
     }
 
