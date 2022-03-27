@@ -9,7 +9,7 @@ public class Main {
         JumpToJava jj = new JumpToJava();
         //basicFunc.tuto_80();
 
-        jj.func04();
+        jj.func10();
         return;
     }
 
