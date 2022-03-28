@@ -7,10 +7,12 @@ public class Main {
         // write your code here
         BasicFunc basicFunc = new BasicFunc();
         JumpToJava jj = new JumpToJava();
+        PracticeTest pt = new PracticeTest();
         //basicFunc.tuto_80();
-
-        jj.func10();
+        //jj.func11();
+        pt.func10();
         return;
     }
+
 
 }

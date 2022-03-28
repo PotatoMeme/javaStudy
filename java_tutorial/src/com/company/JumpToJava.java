@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 public class JumpToJava {
     // 링크
@@ -210,5 +212,70 @@ public class JumpToJava {
         System.out.println(map.keySet());  // [baseball, people] 출력
         ArrayList<String> keyList = new ArrayList<>(map.keySet());
         System.out.println(keyList);
+    }
+    public void func11() {
+        // 집합(Set) 자료형은 집합과 관련된 것을 쉽게 처리하기 위해 만든 자료형
+        HashSet<String> set = new HashSet<>(Arrays.asList("H", "e", "l", "l", "o"));
+        System.out.println(set); // [e, H, l, o]
+        // 집합 자료형의 특징
+        // 중복을 허용하지 않는다.
+        // 순서가 없다(Unordered). -> 인덱싱으로 값을 얻을 수 없다
+        HashSet<Integer> s1 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        HashSet<Integer> s2 = new HashSet<>(Arrays.asList(4, 5, 6, 7, 8, 9));
+        HashSet<Integer> intersection = new HashSet<>(s1);  // s1으로 intersection 생성
+        intersection.retainAll(s2);  // 교집합 수행
+        System.out.println(intersection);  // [4, 5, 6] 출력
+        HashSet<Integer> union = new HashSet<>(s1);  // s1으로 union 생성
+        union.addAll(s2); // 합집합 수행
+        System.out.println(union);  // [1, 2, 3, 4, 5, 6, 7, 8, 9] 출력
+        HashSet<Integer> substract = new HashSet<>(s1);  // s1으로 substract 생성
+        substract.removeAll(s2); // 차집합 수행
+        System.out.println(substract);  // [1, 2, 3] 출력
+        set.add("Jump");
+        set.addAll(Arrays.asList("To", "Java"));
+        System.out.println(set); // [Java, e, H, To, l, Jump, o]
+        set.remove("To");
+        System.out.println(set); // [Java, e, H, l, Jump, o]
+    }
+    enum CoffeeType {
+        AMERICANO,
+        ICE_AMERICANO,
+        CAFE_LATTE
+    };
+    public void func12() {
+        // Enum은 서로 관련이 있는 여러 개의 상수 집합을 정의할 때 사용하는 자료형이다.
+        System.out.println(CoffeeType.AMERICANO);  // AMERICANO 출력
+        System.out.println(CoffeeType.ICE_AMERICANO);  // ICE_AMERICANO 출력
+        System.out.println(CoffeeType.CAFE_LATTE);  // CAFE_LATTE 출력
+        for(CoffeeType type: CoffeeType.values()) {
+            System.out.println(type);  // 순서대로 AMERICANO, ICE_AMERICANO, CAFE_LATTE 출력
+        }
+    }
+    public void func13() {
+        String num = "123";
+        int n = Integer.parseInt(num);
+        System.out.println(n);  // 123 출력
+        String num1 = String.valueOf(n);
+        String num2 = Integer.toString(n);
+        System.out.println(num1);  // 123 출력
+        System.out.println(num2);  // 123 출력
+        String numD = "123.456";
+        double d = Double.parseDouble(numD);
+        System.out.println(d);
+        int n2 = (int) d; // 형변환 안하면 애러발생
+        System.out.println(n2);
+        // int n = Integer.parseInt(num);
+        // 실수 형태의 문자열을 정수로 변환할 경우 NumberFormatException이 발생한다.
+    }
+    public void func14() {
+        final int n = 123;  // final 로 설정하면 값을 바꿀수 없다.
+        // n = 456;  // 컴파일 에러 발생
+        final ArrayList<String> a = new ArrayList<>(Arrays.asList("a", "b"));
+        // a = new ArrayList<>(Arrays.asList("c", "d"));  // 컴파일 에러 발생
+        //리스트의 경우 final로 선언시 리스트에 값을 더하거나(add) 빼는(remove) 것은 가능하다.
+        //다만 재할당만 불가능할 뿐이다. 만약 그 값을 더하거나 빼는 것도 불가능하게 하고 싶은 경우
+        // 에는 List.of로 수정이 불가능한 리스트(Unmodifiable List)를 생성해야 한다
+        final List<String> list = List.of("a", "b");
+        //list.add("c");  // UnsupportedOperationException 발생
     }
 }
