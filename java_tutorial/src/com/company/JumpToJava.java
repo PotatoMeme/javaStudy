@@ -187,6 +187,7 @@ public class JumpToJava {
         pitches.sort(Comparator.reverseOrder());  // 내림차순(역)으로 정렬
         System.out.println(pitches);  // [142, 138, 129] 출력
     }
+
     public void func10() {
         // Map은 리스트나 배열처럼 순차적으로(sequential) 해당 요소 값을
         // 구하지 않고 key를 통해 value를 얻는다. 맵(Map)의 가장 큰 특징
@@ -213,6 +214,7 @@ public class JumpToJava {
         ArrayList<String> keyList = new ArrayList<>(map.keySet());
         System.out.println(keyList);
     }
+
     public void func11() {
         // 집합(Set) 자료형은 집합과 관련된 것을 쉽게 처리하기 위해 만든 자료형
         HashSet<String> set = new HashSet<>(Arrays.asList("H", "e", "l", "l", "o"));
@@ -237,20 +239,25 @@ public class JumpToJava {
         set.remove("To");
         System.out.println(set); // [Java, e, H, l, Jump, o]
     }
+
     enum CoffeeType {
         AMERICANO,
         ICE_AMERICANO,
         CAFE_LATTE
-    };
+    }
+
+    ;
+
     public void func12() {
         // Enum은 서로 관련이 있는 여러 개의 상수 집합을 정의할 때 사용하는 자료형이다.
         System.out.println(CoffeeType.AMERICANO);  // AMERICANO 출력
         System.out.println(CoffeeType.ICE_AMERICANO);  // ICE_AMERICANO 출력
         System.out.println(CoffeeType.CAFE_LATTE);  // CAFE_LATTE 출력
-        for(CoffeeType type: CoffeeType.values()) {
+        for (CoffeeType type : CoffeeType.values()) {
             System.out.println(type);  // 순서대로 AMERICANO, ICE_AMERICANO, CAFE_LATTE 출력
         }
     }
+
     public void func13() {
         String num = "123";
         int n = Integer.parseInt(num);
@@ -267,6 +274,7 @@ public class JumpToJava {
         // int n = Integer.parseInt(num);
         // 실수 형태의 문자열을 정수로 변환할 경우 NumberFormatException이 발생한다.
     }
+
     public void func14() {
         final int n = 123;  // final 로 설정하면 값을 바꿀수 없다.
         // n = 456;  // 컴파일 에러 발생
@@ -278,4 +286,152 @@ public class JumpToJava {
         final List<String> list = List.of("a", "b");
         //list.add("c");  // UnsupportedOperationException 발생
     }
+
+    public void func15() {
+        boolean money = true;
+        if (money) {
+            System.out.println("택시를 타고 가라");
+        } else {
+            System.out.println("걸어가라");
+        }
+
+        ArrayList<String> pocket = new ArrayList<String>();
+        pocket.add("paper");
+        pocket.add("handphone");
+        pocket.add("money");
+
+        if (pocket.contains("money")) {
+            System.out.println("택시를 타고 가라");
+        } else {
+            System.out.println("걸어가라");
+        }
+    }
+
+    public void func16() {
+        boolean money = true;
+        if (money) {
+            System.out.println("택시를 타고 가라");
+        } else {
+            System.out.println("걸어가라");
+        }
+
+        ArrayList<String> pocket = new ArrayList<String>();
+        pocket.add("paper");
+        pocket.add("handphone");
+        pocket.add("money");
+
+        if (pocket.contains("money")) {
+            System.out.println("택시를 타고 가라");
+        } else {
+            System.out.println("걸어가라");
+        }
+    }
+
+    public void func17() {
+        int month = 8;
+        String monthString = "";
+        switch (month) {
+            case 1:
+                monthString = "January";
+                break;
+            case 2:
+                monthString = "February";
+                break;
+            case 3:
+                monthString = "March";
+                break;
+            case 4:
+                monthString = "April";
+                break;
+            case 5:
+                monthString = "May";
+                break;
+            case 6:
+                monthString = "June";
+                break;
+            case 7:
+                monthString = "July";
+                break;
+            case 8:
+                monthString = "August";
+                break;
+            case 9:
+                monthString = "September";
+                break;
+            case 10:
+                monthString = "October";
+                break;
+            case 11:
+                monthString = "November";
+                break;
+            case 12:
+                monthString = "December";
+                break;
+            default:
+                monthString = "Invalid month";
+                break;
+        }
+        System.out.println(monthString);
+    }
+
+    public void func18() {
+        int treeHit = 0;
+        while (treeHit < 10) {
+            treeHit++;
+            System.out.println("나무를  " + treeHit + "번 찍었습니다.");
+            if (treeHit == 10) {
+                System.out.println("나무 넘어갑니다.");
+            }
+        }
+        int coffee = 10;
+        int money = 300;
+
+        while (money > 0) {
+            System.out.println("돈을 받았으니 커피를 줍니다.");
+            coffee--;
+            System.out.println("남은 커피의 양은 " + coffee + "입니다.");
+            if (coffee == 0) {
+                System.out.println("커피가 다 떨어졌습니다. 판매를 중지합니다.");
+                break;
+            }
+        }
+        int a = 0;
+        while (a < 10) {
+            a++;
+            if (a % 2 == 0) {
+                continue;  // 짝수인 경우 조건문으로 돌아간다.
+            }
+            System.out.println(a);  // 홀수만 출력된다.
+        }
+    }
+
+    public void func19() {
+        String[] numbers = {"one", "two", "three"};
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+        int[] marks = {90, 25, 67, 45, 80};
+        for (int i = 0; i < marks.length; i++) {
+            if (marks[i] >= 60) {
+                System.out.println((i + 1) + "번 학생은 합격입니다.");
+            } else {
+                System.out.println((i + 1) + "번 학생은 불합격입니다.");
+            }
+        }
+        for (int i = 2; i < 10; i++) {
+            for (int j = 1; j < 10; j++) {
+                System.out.print(i * j + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public void func20() {
+        //String[] numbers = {"one", "two", "three"};
+        ArrayList<String> numbers = new ArrayList<>(Arrays.asList("one", "two", "three"));
+        for (String number : numbers) {
+            System.out.println(number);
+        }
+    }
+
 }
