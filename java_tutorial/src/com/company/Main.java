@@ -10,7 +10,7 @@ public class Main {
         PracticeTest pt = new PracticeTest();
         //basicFunc.tuto_80();
         //jj.func11();
-        pt.func13();
+        jj.func24();
         return;
     }
 

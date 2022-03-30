@@ -434,4 +434,197 @@ public class JumpToJava {
         }
     }
 
+    public void func21() {
+        Func21_Calculator cal1 = new Func21_Calculator();
+        Func21_Calculator cal2 = new Func21_Calculator();
+        System.out.println(cal1.add(2)); // 2
+        System.out.println(cal1.sub(1)); // 1
+        System.out.println(cal2.add(2)); // 2
+        System.out.println(cal2.sub(1)); // 1
+        System.out.println(Func21_Calculator.count);//4
+        cal1.setCount(0);
+        System.out.println(cal1.add(2)); // 3
+        System.out.println(cal2.add(2)); // 3
+        System.out.println(Func21_Calculator.count);//2
+        addResult(cal1);
+        System.out.println(cal1.result); // 4
+    }
+
+    int a;  // 객체변수 a
+
+    void varTest(JumpToJava jj) { // ()
+        jj.a++; // this.a++
+    }
+
+    void addResult(Func21_Calculator cal) { // Call by value
+        cal.result++;
+    }
+
+    public void func22() {
+        JumpToJava jj = new JumpToJava();
+        jj.varTest(jj);
+        System.out.println(jj.a); // 1
+        System.out.println(a); // 0
+    }
+
+    public void func23() {
+        Func23_Calculator cal1 = new Func23_Calculator();
+        cal1.setName("poppy");
+        System.out.println(cal1.name);  // poppy 출력
+        cal1.sleep();  // poppy zzz 출력
+        Func23_Calculator_sub cal2 = new Func23_Calculator();
+        // Func23_Calculator_sub is a Func23_Calculator
+        //Func23_Calculator cal3 = new Func23_Calculator_sub(); // error
+        // Func23_Calculator is not a Func23_Calculator_sub
+    }
+
+    public void func24() {
+        ZooKeeper zooKeeper = new ZooKeeper();
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        zooKeeper.feed(tiger);  // feed apple 출력
+        zooKeeper.bark(tiger);  // 어흥
+        zooKeeper.barkAnimal(tiger);  // 어흥
+        zooKeeper.feed(lion);  // feed banana 출력
+        zooKeeper.bark(lion);  // 으르렁
+        zooKeeper.barkAnimal(lion);  // 으르렁
+    }
+
+}
+
+class Func21_Calculator {
+    int result = 0;
+    public static int count = 0; // 이전에 계산한 결괏값을 유지
+
+    void setCount(int count) {
+        this.count = count;
+    }
+
+    int add(int num) {
+        result += num;
+        count++;
+        return result;
+    }
+
+    int sub(int num) {
+        result -= num;
+        count++;
+        return result;
+    }
+
+    void sayNick(String nick) {
+        if ("fool".equals(nick)) {
+            return;
+        }
+        System.out.println("나의 별명은 " + nick + " 입니다.");
+    }
+}
+
+class Func23_Calculator_sub {
+    String name;
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    void sleep() {
+        System.out.println(this.name + " zzz");
+    }
+}
+
+class Func23_Calculator extends Func23_Calculator_sub {
+    void sleep() {
+        System.out.println(this.name + " zzz in house"); // 메소드 오버로딩
+    }
+}
+
+class Func24_Calculator_sub1 {
+    void sleep() {
+        System.out.println("sub1");
+    }
+}
+
+class Func24_Calculator_sub2 {
+    void sleep() {
+        System.out.println("sub1");
+    }
+}
+
+// 자바는 클래스 다중 상속을 지원하지 않는다.
+//class Func24_Calculator extends  Func24_Calculator_sub1,Func24_Calculator_sub2{
+//
+//}
+//
+class Func25_Calculator_sub {
+    String name;
+
+    Func25_Calculator_sub() {
+        name = "default";
+    }
+
+    Func25_Calculator_sub(String name) {
+        this.name = name;
+    }
+}
+
+class Func25_Calculator extends Func25_Calculator_sub {
+    Func25_Calculator(String name) {
+        super(name);
+    }
+}
+
+interface Predator {
+    String getFood();
+}
+interface Barkable {
+    void bark();
+}
+
+interface BarkablePredator extends Predator, Barkable {
+    default void printFood() {
+        System.out.printf("my food is %s\n", getFood());
+    }
+}
+
+class Animal {
+    String name;
+
+    void setName(String name) {
+        this.name = name;
+    }
+}
+
+class Tiger extends Animal implements BarkablePredator {
+    public String getFood() {
+        return "apple";
+    }
+    public void bark() {
+        System.out.println("어흥");
+    }
+}
+
+class Lion extends Animal implements BarkablePredator {
+    public String getFood() {
+        return "banana";
+    }
+    public void bark() {
+        System.out.println("으르렁");
+    }
+}
+
+class ZooKeeper {
+    void feed(BarkablePredator predator) {
+        System.out.println("feed " + predator.getFood());
+    }
+    //  다형성(Polymorphism) : 하나의 객체가 여러개의 자료형 타입을 가질 수 있는 것
+    void bark(Animal animal) {
+        if (animal instanceof Tiger) {
+            System.out.println("어흥");
+        } else if (animal instanceof Lion) {
+            System.out.println("으르렁");
+        }
+    }
+    void barkAnimal(Barkable animal) {
+        animal.bark();
+    }
 }
