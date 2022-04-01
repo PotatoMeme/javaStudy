@@ -489,6 +489,7 @@ public class JumpToJava {
         zooKeeper.bark(lion);  // 으르렁
         zooKeeper.barkAnimal(lion);  // 으르렁
     }
+    public void func25() {}
 
 }
 
