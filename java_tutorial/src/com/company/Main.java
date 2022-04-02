@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.io.InputStream;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,8 +11,11 @@ public class Main {
         JumpToJava jj = new JumpToJava();
         PracticeTest pt = new PracticeTest();
         //basicFunc.tuto_80();
-        //jj.func11();
-        pt.func20();
+        //jj.func25();
+        //pt.func20();
+
+
+
         return;
     }
 

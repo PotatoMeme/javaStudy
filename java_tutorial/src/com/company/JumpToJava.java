@@ -1,11 +1,9 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.util.*;
 
 public class JumpToJava {
     // 링크
@@ -489,7 +487,21 @@ public class JumpToJava {
         zooKeeper.bark(lion);  // 으르렁
         zooKeeper.barkAnimal(lion);  // 으르렁
     }
-    public void func25() {}
+    public void func25() throws IOException {
+        InputStream in = System.in;
+
+        int a;
+        a = in.read();
+
+        System.out.println(a);
+    }
+    public void func26() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(sc.next());
+        //next - 단어
+        //nextLine - 라인
+        //nextInt - 정수
+    }
 
 }
 
