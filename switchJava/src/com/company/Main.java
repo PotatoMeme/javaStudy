@@ -8,7 +8,6 @@ public class Main {
         //week01Switch week01 = new week01Switch();
         //week01.unit10_practice01();
         CodeUp codeUp = new CodeUp();
-        codeUp.fun056();
-
+        codeUp.fun090();
     }
 }
