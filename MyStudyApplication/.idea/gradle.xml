@@ -13,6 +13,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/newmodule001" />
             <option value="$PROJECT_DIR$/newmodule002" />
+            <option value="$PROJECT_DIR$/newmodule003" />
+            <option value="$PROJECT_DIR$/newmodule004" />
+            <option value="$PROJECT_DIR$/newmodule005" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
