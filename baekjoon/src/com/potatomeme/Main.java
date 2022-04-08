@@ -5,11 +5,16 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
-    //백준 제출용 포멧
     public static void main(String[] args) {
-
+        Scanner in = new Scanner(System.in);
+        int A, B;
+        A = in.nextInt();
+        B = in.nextInt();
+        System.out.println(A * (B % 10));
+        System.out.println(A * (B % 100 / 10));
+        System.out.println(A * (B / 100));
+        System.out.println(A * B);
     }
-
 }
 
 
