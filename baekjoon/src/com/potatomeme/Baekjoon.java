@@ -1,9 +1,7 @@
 package com.potatomeme;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Baekjoon {
     //https://www.acmicpc.net/problemset
@@ -846,8 +844,589 @@ public class Baekjoon {
         } else if (B == C) {
             result = B * 100 + 1000;
         } else {
-            result = (A > B && A > C ? A : B > A && B > C ? B : C )* 100;
+            result = (A > B && A > C ? A : B > A && B > C ? B : C) * 100;
         }
         System.out.println(result);
     }
+
+    //  3 단계 : 반복문 ----------------------------------------------------------
+
+    //2739
+    {/*문제
+    N을 입력받은 뒤, 구구단 N단을 출력하는 프로그램을 작성하시오. 출력 형식에 맞춰서 출력하면 된다.
+
+    입력
+    첫째 줄에 N이 주어진다. N은 1보다 크거나 같고, 9보다 작거나 같다.
+
+    출력
+    출력형식과 같게 N*1부터 N*9까지 출력한다.
+
+    예제 입력 1
+    2
+    예제 출력 1
+    2 * 1 = 2
+    2 * 2 = 4
+    2 * 3 = 6
+    2 * 4 = 8
+    2 * 5 = 10
+    2 * 6 = 12
+    2 * 7 = 14
+    2 * 8 = 16
+    2 * 9 = 18*/
+    }
+
+    public void solution2739() {
+        Scanner in = new Scanner(System.in);
+        int A = in.nextInt();
+        for (int i = 1; i < 10; i++) {
+            System.out.println(String.format("%d * %d = %d", A, i, A * i));
+        }
+    }
+
+    //10950
+    {/*문제
+    두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+
+    각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+
+    출력
+    각 테스트 케이스마다 A+B를 출력한다.
+
+    예제 입력 1
+    5
+    1 1
+    2 3
+    3 4
+    9 8
+    5 2
+    예제 출력 1
+    2
+    5
+    7
+    17
+    7*/
+    }
+
+    public void solution10950() {
+        Scanner in = new Scanner(System.in);
+        int T = in.nextInt();
+        for (int i = 0; i < T; i++) {
+            System.out.println(in.nextInt() + in.nextInt());
+        }
+    }
+
+    //8393
+    {/*문제
+    n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 n (1 ≤ n ≤ 10,000)이 주어진다.
+
+    출력
+    1부터 n까지 합을 출력한다.
+
+    예제 입력 1
+    3
+    예제 출력 1
+    6*/
+    }
+
+    public void solution8393() {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        System.out.println((1 + n) * n / 2);
+        /*int result = 0;
+        for (int i = 1; i <= n; i++) {
+            result += i;
+        }*/
+    }
+
+    //15552
+    {/*문제
+    본격적으로 for문 문제를 풀기 전에 주의해야 할 점이 있다. 입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다는 점이다.
+
+    C++을 사용하고 있고 cin/cout을 사용하고자 한다면, cin.tie(NULL)과 sync_with_stdio(false)를 둘 다 적용해 주고, endl 대신 개행문자(\n)를 쓰자. 단, 이렇게 하면 더 이상 scanf/printf/puts/getchar/putchar 등 C의 입출력 방식을 사용하면 안 된다.
+
+    Java를 사용하고 있다면, Scanner와 System.out.println 대신 BufferedReader와 BufferedWriter를 사용할 수 있다. BufferedWriter.flush는 맨 마지막에 한 번만 하면 된다.
+
+    Python을 사용하고 있다면, input 대신 sys.stdin.readline을 사용할 수 있다. 단, 이때는 맨 끝의 개행문자까지 같이 입력받기 때문에 문자열을 저장하고 싶을 경우 .rstrip()을 추가로 해 주는 것이 좋다.
+
+    또한 입력과 출력 스트림은 별개이므로, 테스트케이스를 전부 입력받아서 저장한 뒤 전부 출력할 필요는 없다. 테스트케이스를 하나 받은 뒤 하나 출력해도 된다.
+
+    자세한 설명 및 다른 언어의 경우는 이 글에 설명되어 있다.
+
+    이 블로그 글에서 BOJ의 기타 여러 가지 팁을 볼 수 있다.
+
+    입력
+    첫 줄에 테스트케이스의 개수 T가 주어진다. T는 최대 1,000,000이다. 다음 T줄에는 각각 두 정수 A와 B가 주어진다. A와 B는 1 이상, 1,000 이하이다.
+
+    출력
+    각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.
+
+    예제 입력 1
+    5
+    1 1
+    12 34
+    5 500
+    40 60
+    1000 1000
+    예제 출력 1
+    2
+    46
+    505
+    100
+    2000*/
+    }
+
+    public void solution15552_ver1() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int T = Integer.parseInt(br.readLine());
+        String st;
+        for (int i = 0; i < T; i++) {
+            st = br.readLine();
+            int a = Integer.parseInt(st.split(" ")[0]);
+            int b = Integer.parseInt(st.split(" ")[1]);
+            bw.write(a + b + "\n");// stack처럼bw에 추가
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    public void solution15552_ver2() throws IOException {// StringTokenizer가 더빠름
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int T = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+        for (int i = 0; i < T; i++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            bw.write(a + b + "\n");// stack처럼bw에 추가
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    //2741
+    {/*
+    첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+    1
+    2
+    3
+    4
+    5*/
+    }
+
+    public void solution2741_ver1() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(br.readLine());
+        for (int i = 1; i <= N; i++) {
+            bw.write(i + "\n");// stack처럼bw에 추가
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    public void solution2741_ver2() throws IOException {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        for (int i = 1; i <= N; i++) {
+            System.out.println(i);
+        }
+    }
+
+    //2742
+    {/*문제
+    자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.
+
+    출력
+    첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+    5
+    4
+    3
+    2
+    1*/
+    }
+
+    public void solution2742() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(br.readLine());
+        for (int i = N; i > 0; i--) {
+            bw.write(i + "\n");// stack처럼bw에 추가
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    //11021
+    {/*문제
+    자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.
+
+    출력
+    첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+    5
+    4
+    3
+    2
+    1*/
+    }
+
+    public void solution11021_ver1() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+        int A, B;
+        for (int i = 1; i <= N; i++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            A = Integer.parseInt(st.nextToken());
+            B = Integer.parseInt(st.nextToken());
+            bw.write("Case #" + i + ": " + (A + B) + "\n");
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    public void solution11021_ver2() {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Case #" + i + ": " + (in.nextInt() + in.nextInt()));
+        }
+    }
+
+    //11022
+    {/*문제
+    자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.
+
+    출력
+    첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+    5
+    4
+    3
+    2
+    1*/
+    }
+
+    public void solution11022() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+        int A, B;
+        for (int i = 1; i <= N; i++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            A = Integer.parseInt(st.nextToken());
+            B = Integer.parseInt(st.nextToken());
+            bw.write("Case #" + i + ": " + A + " + " + B + " = " + (A + B) + "\n");
+        }
+        br.close();
+        bw.flush();// 한번에 출력력
+        bw.close();
+    }
+
+    //2438
+    {/*문제
+    첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
+
+    입력
+    첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.
+
+    출력
+    첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+    *
+    **
+    ***
+    ****
+    *****
+    */
+    }
+
+    public void solution2438() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int n = Integer.parseInt(br.readLine());
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                bw.write('*');
+            }
+            bw.write('\n');
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //2439
+    {/*문제
+    첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
+
+    하지만, 오른쪽을 기준으로 정렬한 별(예제 참고)을 출력하시오.
+
+    입력
+    첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.
+
+    출력
+    첫째 줄부터 N번째 줄까지 차례대로 별을 출력한다.
+
+    예제 입력 1
+    5
+    예제 출력 1
+        *
+       **
+      ***
+     ****
+    *****
+    */
+    }
+
+    public void solution2439() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int n = Integer.parseInt(br.readLine());
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = n - i; j > 0; j--) {
+                bw.write(' ');
+            }
+            for (int j = 0; j < i; j++) {
+                bw.write('*');
+            }
+            bw.write('\n');
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //10871
+    {/*문제
+    정수 N개로 이루어진 수열 A와 정수 X가 주어진다. 이때, A에서 X보다 작은 수를 모두 출력하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 N과 X가 주어진다. (1 ≤ N, X ≤ 10,000)
+
+    둘째 줄에 수열 A를 이루는 정수 N개가 주어진다. 주어지는 정수는 모두 1보다 크거나 같고, 10,000보다 작거나 같은 정수이다.
+
+    출력
+    X보다 작은 수를 입력받은 순서대로 공백으로 구분해 출력한다. X보다 작은 수는 적어도 하나 존재한다.
+
+    예제 입력 1
+    10 5
+    1 10 4 9 2 3 8 5 7 6
+    예제 출력 1
+    1 4 2 3
+    */
+    }
+
+    public void solution10871() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        StringTokenizer st;
+        st = new StringTokenizer(br.readLine(), " ");
+        int N = Integer.parseInt(st.nextToken());
+        int X = Integer.parseInt(st.nextToken());
+        st = new StringTokenizer(br.readLine(), " ");
+        int check;
+        for (int i = 0; i < N; i++) {
+            check = Integer.parseInt(st.nextToken());
+            if (check < X) bw.write(check + " ");
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //10952
+    {/*문제
+    두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+    입력
+    입력은 여러 개의 테스트 케이스로 이루어져 있다.
+
+    각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+
+    입력의 마지막에는 0 두 개가 들어온다.
+
+    출력
+    각 테스트 케이스마다 A+B를 출력한다.
+
+    예제 입력 1
+    1 1
+    2 3
+    3 4
+    9 8
+    5 2
+    0 0
+    예제 출력 1
+    2
+    5
+    7
+    17
+    7
+    */
+    }
+
+    public void solution10952() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int A, B;
+        StringTokenizer st;
+        while (true) {
+            st = new StringTokenizer(br.readLine(), " ");
+            A = Integer.parseInt(st.nextToken());
+            B = Integer.parseInt(st.nextToken());
+            if (A == 0 && B == 0) break;
+            bw.write((A + B) + "\n");
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //10951
+    {/*문제
+    두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+    입력
+    입력은 여러 개의 테스트 케이스로 이루어져 있다.
+
+    각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+
+    출력
+    각 테스트 케이스마다 A+B를 출력한다.
+
+    예제 입력 1
+    1 1
+    2 3
+    3 4
+    9 8
+    5 2
+    예제 출력 1
+    2
+    5
+    7
+    17
+    7
+    */
+    }
+
+    public void solution10951() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int A, B;
+        String str;
+        StringTokenizer st;
+        while ((str = br.readLine()) != null) {
+            st = new StringTokenizer(str, " ");
+            A = Integer.parseInt(st.nextToken());
+            B = Integer.parseInt(st.nextToken());
+            bw.write((A + B) + "\n");
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //1110
+    {/*문제
+    0보다 크거나 같고, 99보다 작거나 같은 정수가 주어질 때 다음과 같은 연산을 할 수 있다. 먼저 주어진 수가 10보다 작다면 앞에 0을 붙여 두 자리 수로 만들고, 각 자리의 숫자를 더한다. 그 다음, 주어진 수의 가장 오른쪽 자리 수와 앞에서 구한 합의 가장 오른쪽 자리 수를 이어 붙이면 새로운 수를 만들 수 있다. 다음 예를 보자.
+
+    26부터 시작한다. 2+6 = 8이다. 새로운 수는 68이다. 6+8 = 14이다. 새로운 수는 84이다. 8+4 = 12이다. 새로운 수는 42이다. 4+2 = 6이다. 새로운 수는 26이다.
+
+    위의 예는 4번만에 원래 수로 돌아올 수 있다. 따라서 26의 사이클의 길이는 4이다.
+
+    N이 주어졌을 때, N의 사이클의 길이를 구하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 N이 주어진다. N은 0보다 크거나 같고, 99보다 작거나 같은 정수이다.
+
+    출력
+    첫째 줄에 N의 사이클 길이를 출력한다.
+
+    예제 입력 1
+    26
+    예제 출력 1
+    4
+    예제 입력 2
+    55
+    예제 출력 2
+    3
+    예제 입력 3
+    1
+    예제 출력 3
+    60
+    예제 입력 4
+    0
+    예제 출력 4
+    1
+    예제 입력 5
+    71
+    예제 출력 5
+    12
+    */
+    }
+
+    public void solution1110() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int A = Integer.parseInt(br.readLine());
+        int x, y, saveData, cnt;
+        saveData = A;
+        cnt = 0;
+        do {
+            x = saveData / 10;
+            y = saveData % 10;
+            saveData = y * 10 + (x + y) % 10;
+            cnt++;
+        } while (saveData != A);
+        br.close();
+        System.out.println(cnt);
+    }
+
 }

@@ -1,26 +1,27 @@
 package com.potatomeme;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int A = in.nextInt();
-        int B = in.nextInt();
-        int C = in.nextInt();
-        int result = 0;
-        if (A == B & A == C) {
-            result = A * 1000 + 10000;
-        } else if (A == B || A == C) {
-            result = A * 100 + 1000;
-        } else if (B == C) {
-            result = B * 100 + 1000;
-        } else {
-            result = (A > B && A > C ? A : B > A && B > C ? B : C )* 100;
-        }
-        System.out.println(result);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int A = Integer.parseInt(br.readLine());
+        int x, y, saveData, cnt;
+        saveData = A;
+        cnt = 0;
+        do {
+            x = saveData / 10;
+            y = saveData % 10;
+            saveData = y * 10 + (x + y)%10;
+            cnt++;
+        } while (saveData != A);
+        br.close();
+        System.out.println(cnt);
     }
 }
 
