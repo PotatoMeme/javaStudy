@@ -7,31 +7,34 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        bw.write(solution1065_sub1(Integer.parseInt(br.readLine()))+"\n");
+
+        int N = Integer.parseInt(br.readLine());
+        int chk = 0;
+        String str;
+        ArrayList<Character> arr;
+        Boolean test;
+        for (int i = 0; i < N; i++) {
+            str = br.readLine();
+            arr = new ArrayList<>();
+            test = true;
+            arr.add(str.charAt(0));
+            for (int j = 0; j < str.length() - 1; j++) {
+                if (str.charAt(j) != str.charAt(j + 1)) {
+                    if (arr.contains(str.charAt(j + 1))) {
+                        test = false;
+                        break;
+                    }
+                    arr.add(str.charAt(j + 1));
+                }
+            }
+            if (test) {
+                chk++;
+            }
+        }
+        bw.write(chk + "");
         br.close();
         bw.flush();
         bw.close();
-    }
-    public static int solution1065_sub1(int num) throws IOException {
-        if (num < 100) {
-            return num;
-        } else {
-            int cnt = 99;
-            if (num == 1000) {
-                num = 999;
-            }
-
-            for (int i = 100; i <= num; i++) {
-                int hun = i / 100;
-                int ten = (i / 10) % 10;
-                int one = i % 10;
-
-                if ((hun - ten) == (ten - one)) {
-                    cnt++;
-                }
-            }
-            return cnt;
-        }
     }
 }
 
