@@ -2533,20 +2533,30 @@ public class Baekjoon {
         int N = Integer.parseInt(br.readLine());
         int chk = 0;
         String str;
-        ArrayList<Integer> arr = new ArrayList<>();
-        for (int i = 0;i<N;i++){
+        ArrayList<Character> arr;
+        Boolean test;
+        for (int i = 0; i < N; i++) {
             str = br.readLine();
-            for (int j=0;j<str.length()-1;j++){
-                if(str.charAt(i)!=str.charAt(i+1)){
-                    if (arr.contains(i)){
-                        continue;
+            arr = new ArrayList<>();
+            test = true;
+            arr.add(str.charAt(0));
+            for (int j = 0; j < str.length() - 1; j++) {
+                if (str.charAt(j) != str.charAt(j + 1)) {
+                    if (arr.contains(str.charAt(j + 1))) {
+                        test = false;
+                        break;
                     }
-                    arr.add(i);
+                    arr.add(str.charAt(j + 1));
                 }
             }
-            chk++;
+            if (test) {
+                chk++;
+            }
         }
-        System.out.println(chk);
+        bw.write(chk + "");
+        br.close();
+        bw.flush();
+        bw.close();
     }
 
 }
