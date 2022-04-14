@@ -7,19 +7,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
-        int i = 1;
-        while (true) {
-            N -= i;
-            if (N <= 0) {
-                break;
-            }
-            i++;
-        }
-        if (i % 2 == 1) {
-            bw.write((1 - N) + "/" + (i + N));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        int V = Integer.parseInt(st.nextToken());
+        if ((V - A) % (A - B) == 0) {
+            bw.write((V - A) / (A - B) + 1 + "");
         } else {
-            bw.write((i + N) + "/" + (1 - N));
+            bw.write((V - A) / (A - B) + 2 + "");
         }
         br.close();
         bw.flush();
