@@ -21,8 +21,14 @@ public class TestingApi {
         for(String i : test2_arr){
             System.out.print(i+" ");
         }
+    }
+    public void Collection_exam() {
+        //JCF(Java Collections Framework)
+        //Collection 인터페이스는 List, Set, Queue로 크게 3가지 상위 인터페이스로 분류할 수 있다.
 
     }
+
+
 
     public void hashmap_exam() {
         //참고 : https://coding-factory.tistory.com/556
