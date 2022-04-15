@@ -8,25 +8,16 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int K, N;
-        int[][] list = new int[15][14];
-        for(int i =0; i < 14;i++){
-            list[0][i] = i+1;
-        }
-        for(int i =0; i < 15;i++){
-            list[i][0] = 1;
-        }
-        for(int i =1; i < 15;i++){
-            for(int j =1; j < 14;j++){
-                list[i][j] = list[i-1][j]+list[i][j-1];
+        int N = Integer.parseInt(br.readLine());
+        int N_save, i;
+        for (i = N / 5; i >= 0; i--) {
+            N_save = N - 5 * i;
+            if (N_save % 3 == 0) {
+                bw.write(String.format("%d", i + N_save / 3));
+                break;
             }
         }
-        int T = Integer.parseInt(br.readLine());
-        for (int i = 0; i < T; i++) {
-            K = Integer.parseInt(br.readLine());
-            N = Integer.parseInt(br.readLine());
-            bw.write(list[K][N-1]+"\n");
-        }
+        if (i < 0) bw.write(-1 + "");
         br.close();
         bw.flush();
         bw.close();
