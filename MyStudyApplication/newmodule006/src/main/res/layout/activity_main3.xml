@@ -13,28 +13,23 @@
         android:src="@drawable/state"
         android:onClick="onClicked"
         />
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_id1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button
-            android:id="@+id/btn_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="버튼1"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            />
-        <Button
-            android:id="@+id/btn_id1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="버튼2"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            /></LinearLayout>
+        android:layout_height="300dp"
+        android:text="버튼"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/btn_id2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:text="버튼"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+
 
 </LinearLayout>

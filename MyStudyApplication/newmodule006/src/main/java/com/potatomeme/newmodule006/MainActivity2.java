@@ -24,7 +24,9 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void onClicked(View view) {
+
         Toast.makeText(this,"test toast",Toast.LENGTH_LONG).show();
+
     }
 
     public void onClicked_ver1(View view) {
@@ -41,4 +43,6 @@ public class MainActivity2 extends AppCompatActivity {
         });
         s.show();
     }
+
+
 }
