@@ -3026,11 +3026,12 @@ public class Baekjoon {
             num = Integer.parseInt(st.nextToken());
             if (solution1978_sub_ver1(num)) cnt++;
         }
-        bw.write(cnt+"");
+        bw.write(cnt + "");
         br.close();
         bw.flush();
         bw.close();
     }
+
     public boolean solution1978_sub_ver1(int num) {
         if (num == 1) return false;
         for (int i = 2; i < num; i++) {
@@ -3038,6 +3039,7 @@ public class Baekjoon {
         }
         return true;
     }
+
     public boolean solution1978_sub_ver2(int num) {
         if (num == 1) return false;
         for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -3084,22 +3086,23 @@ public class Baekjoon {
         int end_num = Integer.parseInt(br.readLine());
         int sum = 0;
         int min = 0;
-        for (int i = start_num;i<=end_num;i++) {
+        for (int i = start_num; i <= end_num; i++) {
             if (solution2581_sub(i)) {
                 sum += i;
-                if(sum==i) min=i;
+                if (sum == i) min = i;
             }
         }
-        if(sum == 0){
-            bw.write(-1+"");
-        } else{
-            bw.write(sum+"\n");
-            bw.write(min+"");
+        if (sum == 0) {
+            bw.write(-1 + "");
+        } else {
+            bw.write(sum + "\n");
+            bw.write(min + "");
         }
         br.close();
         bw.flush();
         bw.close();
     }
+
     public boolean solution2581_sub(int num) {
         if (num == 1) return false;
         for (int i = 2; i < num; i++) {
@@ -3153,12 +3156,12 @@ public class Baekjoon {
         int num = Integer.parseInt(br.readLine());
         for (int i = 2; i <= Math.sqrt(num); i++) {
             while (num % i == 0) {
-                bw.write(i+"\n");
+                bw.write(i + "\n");
                 num /= i;
             }
         }
         if (num != 1) {
-            bw.write(num+"\n");
+            bw.write(num + "\n");
         }
         br.close();
         bw.flush();
@@ -3185,29 +3188,32 @@ public class Baekjoon {
     13
     */
     }
+
     public static boolean[] prime;
+
     public void solution1929() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int start_num = Integer.parseInt(st.nextToken());
         int end_num = Integer.parseInt(st.nextToken());
-        prime = new boolean[end_num+1];
+        prime = new boolean[end_num + 1];
         solution1929_sub();
-        for (int i = start_num;i<=end_num;i++) {
-            if(!prime[i]) {
-                bw.write(i+"\n");
+        for (int i = start_num; i <= end_num; i++) {
+            if (!prime[i]) {
+                bw.write(i + "\n");
             }
         }
         br.close();
         bw.flush();
         bw.close();
     }
+
     public static void solution1929_sub() {
         prime[0] = prime[1] = true;
-        for(int i = 2; i <= Math.sqrt(prime.length); i++) {
-            if(prime[i]) continue;
-            for(int j = i * i; j < prime.length; j += i) {
+        for (int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if (prime[i]) continue;
+            for (int j = i * i; j < prime.length; j += i) {
                 prime[j] = true;
             }
         }
@@ -3253,32 +3259,36 @@ public class Baekjoon {
 
     */
     }
+
     public void solution4948() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int n,cnt;
-        while (true){
+        int n, cnt;
+        while (true) {
             n = Integer.parseInt(br.readLine());
-            if(n == 0){ break;}
-            prime = new boolean[2*n+1];
+            if (n == 0) {
+                break;
+            }
+            prime = new boolean[2 * n + 1];
             cnt = 0;
             solution4948_sub();
-            for (int i = n+1;i<=2*n;i++) {
-                if(!prime[i]) {
-                   cnt++;
+            for (int i = n + 1; i <= 2 * n; i++) {
+                if (!prime[i]) {
+                    cnt++;
                 }
             }
-            bw.write(cnt+"\n");
+            bw.write(cnt + "\n");
         }
         br.close();
         bw.flush();
         bw.close();
     }
+
     public void solution4948_sub() {
         prime[0] = prime[1] = true;
-        for(int i = 2; i <= Math.sqrt(prime.length); i++) {
-            if(prime[i]) continue;
-            for(int j = i * i; j < prime.length; j += i) {
+        for (int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if (prime[i]) continue;
+            for (int j = i * i; j < prime.length; j += i) {
                 prime[j] = true;
             }
         }
@@ -3313,34 +3323,36 @@ public class Baekjoon {
     4 ≤ n ≤ 10,000
     */
     }
+
     public void solution9020() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int T,n;
+        int T, n;
         T = Integer.parseInt(br.readLine());
-        for (int i=0;i<T;i++){
+        for (int i = 0; i < T; i++) {
             n = Integer.parseInt(br.readLine());
-            prime = new boolean[n+1];
+            prime = new boolean[n + 1];
             bw.write(solution9020_sub(n));
         }
         br.close();
         bw.flush();
         bw.close();
     }
+
     public static String solution9020_sub(int n) {
         prime[0] = prime[1] = true;
-        for(int i = 2; i <= Math.sqrt(prime.length); i++) {
-            if(prime[i]) continue;
-            for(int j = i * i; j < prime.length; j += i) {
+        for (int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if (prime[i]) continue;
+            for (int j = i * i; j < prime.length; j += i) {
                 prime[j] = true;
             }
         }
-        for (int j = 2;j<n;j++) {
-            if(!prime[j]) {
-                for (int k = 2;k<=j;k++) {
-                    if(!prime[k]) {
-                        if (k+j==n){
-                            return k+" "+j+"\n";
+        for (int j = 2; j < n; j++) {
+            if (!prime[j]) {
+                for (int k = 2; k <= j; k++) {
+                    if (!prime[k]) {
+                        if (k + j == n) {
+                            return k + " " + j + "\n";
                         }
                     }
                 }
@@ -3352,18 +3364,18 @@ public class Baekjoon {
     public void solution9020_upgrade() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int T,n,first,second;
+        int T, n, first, second;
         prime = new boolean[10001];
         solution9020_sub_upgrade();
         T = Integer.parseInt(br.readLine());
-        while(T-- > 0) {
+        while (T-- > 0) {
             n = Integer.parseInt(br.readLine());
-            first = n/2;
-            second = n/2;
+            first = n / 2;
+            second = n / 2;
             while (true) {
 
                 if (!prime[first] && !prime[second]) {
-                    bw.write(first + " " + second+"\n");
+                    bw.write(first + " " + second + "\n");
                     break;
                 }
                 first--;
@@ -3375,15 +3387,17 @@ public class Baekjoon {
         bw.flush();
         bw.close();
     }
+
     public static void solution9020_sub_upgrade() {
         prime[0] = prime[1] = true;
-        for(int i = 2; i <= Math.sqrt(prime.length); i++) {
-            if(prime[i]) continue;
-            for(int j = i * i; j < prime.length; j += i) {
+        for (int i = 2; i <= Math.sqrt(prime.length); i++) {
+            if (prime[i]) continue;
+            for (int j = i * i; j < prime.length; j += i) {
                 prime[j] = true;
             }
         }
     }
+
     //1085
     {/*문제
     한수는 지금 (x, y)에 있다. 직사각형은 각 변이 좌표축에 평행하고, 왼쪽 아래 꼭짓점은 (0, 0), 오른쪽 위 꼭짓점은 (w, h)에 있다. 직사각형의 경계선까지 가는 거리의 최솟값을 구하는 프로그램을 작성하시오.
@@ -3417,17 +3431,61 @@ public class Baekjoon {
     161
     */
     }
+
     public void solution1085() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int x,y,w,h;
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        int x, y, w, h;
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         x = Integer.parseInt(st.nextToken());
         y = Integer.parseInt(st.nextToken());
         w = Integer.parseInt(st.nextToken());
         h = Integer.parseInt(st.nextToken());
-        int[] testCase = {x,y,w-x,h-y};
+        int[] testCase = {x, y, w - x, h - y};
         bw.write(Arrays.stream(testCase).min().getAsInt());
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //3009
+    {/*문제
+    세 점이 주어졌을 때, 축에 평행한 직사각형을 만들기 위해서 필요한 네 번째 점을 찾는 프로그램을 작성하시오.
+
+    입력
+    세 점의 좌표가 한 줄에 하나씩 주어진다. 좌표는 1보다 크거나 같고, 1000보다 작거나 같은 정수이다.
+
+    출력
+    직사각형의 네 번째 점의 좌표를 출력한다.
+
+    예제 입력 1
+    5 5
+    5 7
+    7 5
+    예제 출력 1
+    7 7
+    예제 입력 2
+    30 20
+    10 10
+    10 20
+    예제 출력 2
+    30 10
+    */
+    }
+
+    public void solution3009() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int[] x = new int[4];
+        int[] y = new int[4];
+        for (int i = 0; i < 3; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            x[i] = Integer.parseInt(st.nextToken());
+            y[i] = Integer.parseInt(st.nextToken());
+        }
+        x[3] = x[0] == x[1] ? x[2] : x[0] == x[2] ? x[1] : x[0];
+        y[3] = y[0] == y[1] ? y[2] : y[0] == y[2] ? y[1] : y[0];
+        bw.write(x[3] + " " + y[3]);
         br.close();
         bw.flush();
         bw.close();
