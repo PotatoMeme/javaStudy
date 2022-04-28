@@ -10,16 +10,21 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] x = new int[4];
-        int[] y = new int[4];
-        for (int i = 0; i < 3; i++) {
+        int x,y,z;
+        while (true) {
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            x[i] = Integer.parseInt(st.nextToken());
-            y[i] = Integer.parseInt(st.nextToken());
+            x = Integer.parseInt(st.nextToken());
+            y = Integer.parseInt(st.nextToken());
+            z = Integer.parseInt(st.nextToken());
+            if(x==0 && y == 0&& z==0) break;
+            if(x>=y && y>=z){
+                bw.write(x*x == y*y + z*z?"right\n":"wrong\n");
+            } else if(y>=z && z>=x){
+                bw.write(y*y == x*x + z*z?"right\n":"wrong\n");
+            } else{
+                bw.write(z*z == x*x + y*y?"right\n":"wrong\n");
+            }
         }
-        x[3] = x[0] == x[1] ? x[2] : x[0] == x[2] ? x[1] : x[0];
-        y[3] = y[0] == y[1] ? y[2] : y[0] == y[2] ? y[1] : y[0];
-        bw.write(x[3] + " " + y[3]);
         br.close();
         bw.flush();
         bw.close();
