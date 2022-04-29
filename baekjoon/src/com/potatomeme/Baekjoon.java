@@ -3539,63 +3539,6 @@ public class Baekjoon {
     }
 
     //2490
-    {/*윷놀이
-
-    문제
-    우리나라 고유의 윷놀이는 네 개의 윷짝을 던져서 배(0)와 등(1)이 나오는 숫자를 세어 도, 개, 걸, 윷, 모를 결정한다. 네 개 윷짝을 던져서 나온 각 윷짝의 배 혹은 등 정보가 주어질 때 도(배 한 개, 등 세 개), 개(배 두 개, 등 두 개), 걸(배 세 개, 등 한 개), 윷(배 네 개), 모(등 네 개) 중 어떤 것인지를 결정하는 프로그램을 작성하라.
-
-    입력
-    첫째 줄부터 셋째 줄까지 각 줄에 각각 한 번 던진 윷짝들의 상태를 나타내는 네 개의 정수(0 또는 1)가 빈칸을 사이에 두고 주어진다.
-
-    출력
-    첫째 줄부터 셋째 줄까지 한 줄에 하나씩 결과를 도는 A, 개는 B, 걸은 C, 윷은 D, 모는 E로 출력한다.
-
-    예제 입력 1
-    0 1 0 1
-    1 1 1 0
-    0 0 1 1
-    예제 출력 1
-    B
-    A
-    B
-    */
-    }
-
-    public void solution2490() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int w,x, y,z;
-        StringTokenizer st;
-        for (int i = 0; i < 3; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
-            w = Integer.parseInt(st.nextToken());
-            x = Integer.parseInt(st.nextToken());
-            y = Integer.parseInt(st.nextToken());
-            z = Integer.parseInt(st.nextToken());
-            switch (w+x+y+z){
-                case 0:
-                    bw.write("D");
-                    break;
-                case 1:
-                    bw.write("C");
-                    break;
-                case 2:
-                    bw.write("B");
-                    break;
-                case 3:
-                    bw.write("A");
-                    break;
-                case 4:
-                    bw.write("E");
-                    break;
-            }
-        }
-        br.close();
-        bw.flush();
-        bw.close();
-    }
-
-    //2490
     {/*지능형 기차
 
     문제
@@ -3654,5 +3597,105 @@ public class Baekjoon {
         bw.flush();
         bw.close();
     }
+
+    //2490
+    {/*윷놀이
+
+    문제
+    우리나라 고유의 윷놀이는 네 개의 윷짝을 던져서 배(0)와 등(1)이 나오는 숫자를 세어 도, 개, 걸, 윷, 모를 결정한다. 네 개 윷짝을 던져서 나온 각 윷짝의 배 혹은 등 정보가 주어질 때 도(배 한 개, 등 세 개), 개(배 두 개, 등 두 개), 걸(배 세 개, 등 한 개), 윷(배 네 개), 모(등 네 개) 중 어떤 것인지를 결정하는 프로그램을 작성하라.
+
+    입력
+    첫째 줄부터 셋째 줄까지 각 줄에 각각 한 번 던진 윷짝들의 상태를 나타내는 네 개의 정수(0 또는 1)가 빈칸을 사이에 두고 주어진다.
+
+    출력
+    첫째 줄부터 셋째 줄까지 한 줄에 하나씩 결과를 도는 A, 개는 B, 걸은 C, 윷은 D, 모는 E로 출력한다.
+
+    예제 입력 1
+    0 1 0 1
+    1 1 1 0
+    0 0 1 1
+    예제 출력 1
+    B
+    A
+    B
+    */
+    }
+
+    public void solution2490() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int w, x, y, z;
+        StringTokenizer st;
+        for (int i = 0; i < 3; i++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            w = Integer.parseInt(st.nextToken());
+            x = Integer.parseInt(st.nextToken());
+            y = Integer.parseInt(st.nextToken());
+            z = Integer.parseInt(st.nextToken());
+            switch (w + x + y + z) {
+                case 0:
+                    bw.write("D");
+                    break;
+                case 1:
+                    bw.write("C");
+                    break;
+                case 2:
+                    bw.write("B");
+                    break;
+                case 3:
+                    bw.write("A");
+                    break;
+                case 4:
+                    bw.write("E");
+                    break;
+            }
+        }
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    //2506
+    {/*문제
+    OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다. 여러 개의 OX 문제로 만들어진 시험에서 연속적으로 답을 맞히는 경우에는 가산점을 주기 위해서 다음과 같이 점수 계산을 하기로 하였다. 1번 문제가 맞는 경우에는 1점으로 계산한다. 앞의 문제에 대해서는 답을 틀리다가 답이 맞는 처음 문제는 1점으로 계산한다. 또한, 연속으로 문제의 답이 맞는 경우에서 두 번째 문제는 2점, 세 번째 문제는 3점, ..., K번째 문제는 K점으로 계산한다. 틀린 문제는 0점으로 계산한다.
+
+    예를 들어, 아래와 같이 10 개의 OX 문제에서 답이 맞은 문제의 경우에는 1로 표시하고, 틀린 경우에는 0으로 표시하였을 때, 점수 계산은 아래 표와 같이 계산되어, 총 점수는 1+1+2+3+1+2=10 점이다.
+
+    채점	1	0	1	1	1	0	0	1	1	0
+    점수	1	0	1	2	3	0	0	1	2	0
+    시험문제의 채점 결과가 주어졌을 때, 총 점수를 계산하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 문제의 개수 N (1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 N개 문제의 채점 결과를 나타내는 0 혹은 1이 빈 칸을 사이에 두고 주어진다. 0은 문제의 답이 틀린 경우이고, 1은 문제의 답이 맞는 경우이다.
+
+    출력
+    첫째 줄에 입력에서 주어진 채점 결과에 대하여 가산점을 고려한 총 점수를 출력한다.
+
+    예제 입력 1
+    10
+    1 0 1 1 1 0 0 1 1 0
+    예제 출력 1
+    10
+    */
+    }
+
+    public void solution2506() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int save, result;
+        save = 0;
+        result = 0;
+        for (int i = 0; i < n; i++) {
+            save = Integer.parseInt(st.nextToken()) == 1 ? save + 1 : 0;
+            result += save;
+        }
+        bw.write(result+"");
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
 
 }
