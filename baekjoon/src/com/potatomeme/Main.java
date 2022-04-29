@@ -10,20 +10,32 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int x,y;
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
-        st.nextToken();
-        y = Integer.parseInt(st.nextToken());
-        int[] arr = new int[3];
-        arr[0] = y;
-        for(int i = 0;i<2;i++){
-            st = new StringTokenizer(br.readLine()," ");
+        int w,x, y,z;
+        StringTokenizer st;
+        for (int i = 0; i < 3; i++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            w = Integer.parseInt(st.nextToken());
             x = Integer.parseInt(st.nextToken());
             y = Integer.parseInt(st.nextToken());
-            arr[i+1] = arr[i]-x+y;
+            z = Integer.parseInt(st.nextToken());
+            switch (w+x+y+z){
+                case 0:
+                    bw.write("D\n");
+                    break;
+                case 1:
+                    bw.write("C\n");
+                    break;
+                case 2:
+                    bw.write("B\n");
+                    break;
+                case 3:
+                    bw.write("A\n");
+                    break;
+                case 4:
+                    bw.write("E\n");
+                    break;
+            }
         }
-        br.readLine();
-        bw.write(Arrays.stream(arr).max().getAsInt()+"");
         br.close();
         bw.flush();
         bw.close();
