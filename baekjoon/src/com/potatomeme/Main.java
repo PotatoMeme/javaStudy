@@ -11,15 +11,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        int save, result;
-        save = 0;
-        result = 0;
+        int T,result;
+        StringTokenizer st;
         for (int i = 0; i < n; i++) {
-            save = Integer.parseInt(st.nextToken()) == 1 ? save + 1 : 0;
-            result += save;
+            T = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine()," ");
+            result = 0;
+            for(int j = 0; j < T; j++){
+                result +=Integer.parseInt(st.nextToken());
+            }
+            bw.write(result+"\n");
         }
-        bw.write(result+"");
         br.close();
         bw.flush();
         bw.close();
