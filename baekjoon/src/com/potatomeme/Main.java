@@ -11,16 +11,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int n = Integer.parseInt(br.readLine());
-        bw.write(solution10872_sub(n)+"");
+        bw.write(solution10870_sub(n) + "");
         br.close();
         bw.flush();
         bw.close();
     }
-    public static int solution10872_sub(int n){
-        if(n<2){
-            return 1;
+
+    public static int solution10870_sub(int n) {
+        if (n < 2) {
+            return n;
         }
-        return n*solution10872_sub(n-1);
+        return solution10870_sub(n - 1)+solution10870_sub(n - 2);
     }
 }
 
