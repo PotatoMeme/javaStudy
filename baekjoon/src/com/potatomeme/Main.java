@@ -12,11 +12,19 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int t = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int v = Integer.parseInt(br.readLine());
-        int check = 0;
-        for (int i = 0; i < t; i++) check = Integer.parseInt(st.nextToken()) == v ? check + 1 : check;
-        bw.write(check+"");
+        StringTokenizer st;
+        int n;
+        int[] arr;
+        for (int i = 0; i < t; i++){
+            n = Integer.parseInt(br.readLine());
+            arr = new int[n];
+            st = new StringTokenizer(br.readLine());
+            for(int j = 0; j < n; j++){
+                arr[j] = Integer.parseInt(st.nextToken());
+            }
+            int result = (Arrays.stream(arr).max().getAsInt()-Arrays.stream(arr).min().getAsInt())*2;
+            bw.write(result+"\n");
+        }
         br.close();
         bw.flush();
         bw.close();
