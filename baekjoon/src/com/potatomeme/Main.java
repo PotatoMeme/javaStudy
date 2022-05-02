@@ -11,13 +11,27 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int num, sum;
-        sum = 0;
-        for (int i = 0; i < 5; i++) {
-            num = Integer.parseInt(br.readLine());
-            sum += num < 40 ? 40 : num;
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int num1 = Integer.parseInt(st.nextToken());
+        int num2 = Integer.parseInt(st.nextToken());
+        int save = 0;
+        if (num1 < num2) {
+            save = num1;
+            num1 = num2;
+            num2 = save;
         }
-        bw.write(sum / 5 + " ");
+        for (int i = num2; i > 0; i--) {
+            if (num1 % i == 0 && num2 % i == 0) {
+                bw.write(i + "\n");
+                break;
+            }
+        }
+        for (int i = 1; i <= num2; i++) {
+            if ((num1 * i) % num2 == 0) {
+                bw.write(num1 * i + "");
+                break;
+            }
+        }
         br.close();
         bw.flush();
         bw.close();
