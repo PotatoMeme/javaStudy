@@ -1,4 +1,4 @@
-package com.potatomeme;
+package com.potatomeme.saveBaekjoon;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -1543,7 +1543,7 @@ public class Baekjoon {
         bw.close();
     }
 
-    //2562
+    //2577
     {/*문제
     세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
 
@@ -3048,7 +3048,7 @@ public class Baekjoon {
         return true;
     }
 
-    //1978
+    //2581
     {/*문제
     자연수 M과 N이 주어질 때 M이상 N이하의 자연수 중 소수인 것을 모두 골라 이들 소수의 합과 최솟값을 찾는 프로그램을 작성하시오.
 
@@ -3538,7 +3538,7 @@ public class Baekjoon {
         bw.close();
     }
 
-    //2490
+    //2455
     {/*지능형 기차
 
     문제
@@ -4563,5 +4563,48 @@ public class Baekjoon {
         br.close();
         bw.flush();
         bw.close();
+    }
+
+    //2748
+    {/*피보나치 수 2
+    문제
+    피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.
+
+    이를 식으로 써보면 Fn = Fn-1 + Fn-2 (n ≥ 2)가 된다.
+
+    n=17일때 까지 피보나치 수를 써보면 다음과 같다.
+
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597
+
+    n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.
+
+    입력
+    첫째 줄에 n이 주어진다. n은 90보다 작거나 같은 자연수이다.
+
+    출력
+    첫째 줄에 n번째 피보나치 수를 출력한다.
+
+    예제 입력 1
+    10
+    예제 출력 1
+    55
+    */
+    }
+
+    public void solution2748() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        bw.write(solution2748_sub(n) + "");
+        br.close();
+        bw.flush();
+        bw.close();
+    }
+
+    public static int solution2748_sub(int n) {
+        if (n < 2) {
+            return n;
+        }
+        return solution2748_sub(n - 1) + solution2748_sub(n - 2);
     }
 }
