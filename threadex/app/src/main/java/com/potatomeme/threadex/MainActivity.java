@@ -3,6 +3,7 @@ package com.potatomeme.threadex;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Bundle;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     msg.what = 0;
                     msg.arg1 = time;
                     handler.sendMessage(msg);    // Handler에 Message 보냄
-
+                    //여기서 UI 조작시 오류 발생
                     try{
                         Thread.sleep(1000);
                         time++;
@@ -51,11 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
     Handler handler = new Handler(){
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg) {//Handler에서 받음
             super.handleMessage(msg);
             if(msg.what == 0){
                 timeTv.setText(String.valueOf(msg.arg1));
             }
         }
     };
+
 }
