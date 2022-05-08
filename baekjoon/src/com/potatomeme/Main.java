@@ -11,19 +11,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int num = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        if (num == 1) {
-            int result = Integer.parseInt(st.nextToken());
-            bw.write(result * result + "");
-        } else {
-            int[] arr = new int[num];
-            for (int i = 0; i < num; i++) {
-                arr[i] = Integer.parseInt(st.nextToken());
-            }
-            int result = Arrays.stream(arr).min().getAsInt() * Arrays.stream(arr).max().getAsInt();
-            bw.write(result + "");
+        int sum = 0;
+        int[] arr1 = new int[3];
+        int[] arr2 = new int[2];
+        for (int i = 0; i < 3; i++) {
+            arr1[i] = Integer.parseInt(br.readLine());
         }
+        for (int i = 0; i < 2; i++) {
+            arr2[i] = Integer.parseInt(br.readLine());
+        }
+        sum = Arrays.stream(arr1).min().getAsInt() + Arrays.stream(arr2).min().getAsInt() - 50;
+        bw.write(sum + "");
         br.close();
         bw.flush();
         bw.close();
