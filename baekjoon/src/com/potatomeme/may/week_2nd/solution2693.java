@@ -29,7 +29,7 @@ public class solution2693 {
     */
     }
 
-    public void solution9076() throws IOException {
+    public void solution2693() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int[] arr;
