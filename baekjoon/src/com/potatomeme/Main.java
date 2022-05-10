@@ -12,17 +12,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr;
-        StringTokenizer st;
-        int member;
+
         int T = Integer.parseInt(br.readLine());
+        int[] arr = new int[T];
+        int index = 0, sum = 0;
         for (int i = 0; i < T; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
-            member = Integer.parseInt(st.nextToken());
-            arr = new int[member];
-            for (int j = 0; j < member; j++) arr[j] = Integer.parseInt(br.readLine());
-            bw.write(member - Arrays.stream(arr).distinct().toArray().length + "\n");
+            arr[index] = Integer.parseInt(br.readLine());
+            if (arr[index] == 0) {
+                index--;
+            } else {
+                index++;
+            }
         }
+        for (int i = 0; i < index; i++) {
+            sum += arr[i];
+        }
+        bw.write(sum + "");
         br.close();
         bw.flush();
         bw.close();
