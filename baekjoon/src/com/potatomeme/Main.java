@@ -8,21 +8,31 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        char[] arr = br.readLine().toCharArray();
-        char temp = 0;
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 1; j < arr.length - i; j++) {
-                if (arr[j - 1] < arr[j]) {
-                    temp = arr[j - 1];
-                    arr[j - 1] = arr[j];
-                    arr[j] = temp;
+        int[] arr = new int[9];
+        int sum = 0;
+        int saveA = 0, saveB = 0;
+        for (int i = 0; i < 9; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+            sum += arr[i];
+        }
+        Arrays.sort(arr);
+        for (int a = 0; a < 8; a++) {
+            for (int b = a + 1; b < 9; b++) {
+                if (sum - arr[a] - arr[b] == 100) {
+                    saveA = a;
+                    saveB = b;
+                    break;
                 }
             }
         }
-        bw.write(arr);
+        for (int j = 0; j < arr.length; j++) {
+            if (j == saveA || j == saveB) continue;
+            bw.write(arr[j] + "\n");
+        }
         br.close();
         bw.flush();
         bw.close();
