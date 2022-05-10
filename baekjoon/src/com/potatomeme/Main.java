@@ -14,15 +14,14 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int[] arr;
         StringTokenizer st;
+        int member;
         int T = Integer.parseInt(br.readLine());
         for (int i = 0; i < T; i++) {
-            arr = new int[10];
             st = new StringTokenizer(br.readLine(), " ");
-            for (int j = 0; j < 10; j++) {
-                arr[j] = Integer.parseInt(st.nextToken());
-            }
-            Arrays.sort(arr);
-            bw.write(arr[7] + "\n");
+            member = Integer.parseInt(st.nextToken());
+            arr = new int[member];
+            for (int j = 0; j < member; j++) arr[j] = Integer.parseInt(br.readLine());
+            bw.write(member - Arrays.stream(arr).distinct().toArray().length + "\n");
         }
         br.close();
         bw.flush();
