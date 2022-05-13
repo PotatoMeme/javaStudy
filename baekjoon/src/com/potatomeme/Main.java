@@ -11,30 +11,30 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr;
-        StringTokenizer st;
-        int arrsize,gap;
-        int T = Integer.parseInt(br.readLine());
-        for (int i = 0; i < T; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
-            arrsize = Integer.parseInt(st.nextToken());
-            arr = new int[arrsize];
-            for(int j=0;j<arrsize;j++){
-                arr[j] = Integer.parseInt(st.nextToken());
-            }
-            arr = Arrays.stream(arr).sorted().toArray();
-            gap = 0;
-            for(int j=1;j<arrsize;j++){
-                gap = arr[j] - arr[j-1] > gap? arr[j] - arr[j-1]:gap;
-            }
-            bw.write("Class "+(i+1)+"\n");
-            bw.write("Max "+arr[arrsize-1]+", Min "+arr[0]+", Largest gap "+gap+"\n");
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[10];
+        for(int i=0;i<10;i++){
+            arr1[i] = Integer.parseInt(br.readLine());
         }
+        for(int i=0;i<10;i++){
+            arr2[i] = Integer.parseInt(br.readLine());
+        }
+        bw.write(solution5576_sub(arr1)+" "+solution5576_sub(arr2));
         br.close();
         bw.flush();
         bw.close();
     }
+    public static int solution5576_sub(int[] arr) {
+        int temp;
+        for(int i=0;i<3;i++){
+            for(int j=1;j<10-i;j++){
+                if(arr[j-1]>arr[j]){
+                    temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr[7]+arr[8]+arr[9];
+    }
 }
-
-
-
