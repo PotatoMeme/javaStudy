@@ -11,20 +11,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int T = Integer.parseInt(br.readLine());
-        int num, min, sum;
+        int[] arr;
         StringTokenizer st;
+        int arrsize,gap;
+        int T = Integer.parseInt(br.readLine());
         for (int i = 0; i < T; i++) {
-            min = sum = 0;
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < 7; j++) {
-                num = Integer.parseInt(st.nextToken());
-                if (num % 2 == 0) {
-                    min = min > num ? num : min == 0 ? num : min;
-                    sum += num;
-                }
+            st = new StringTokenizer(br.readLine(), " ");
+            arrsize = Integer.parseInt(st.nextToken());
+            arr = new int[arrsize];
+            for(int j=0;j<arrsize;j++){
+                arr[j] = Integer.parseInt(st.nextToken());
             }
-            bw.write(sum + " " + min + "\n");
+            arr = Arrays.stream(arr).sorted().toArray();
+            gap = 0;
+            for(int j=1;j<arrsize;j++){
+                gap = arr[j] - arr[j-1] > gap? arr[j] - arr[j-1]:gap;
+            }
+            bw.write("Class "+(i+1)+"\n");
+            bw.write("Max "+arr[arrsize-1]+", Min "+arr[0]+", Largest gap "+gap+"\n");
         }
         br.close();
         bw.flush();
