@@ -49,7 +49,7 @@ public class solution10773 {
     */
     }
 
-    public void solution9076() throws IOException {
+    public void solution10773() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 

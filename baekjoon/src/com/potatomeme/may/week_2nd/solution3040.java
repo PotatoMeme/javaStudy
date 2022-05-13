@@ -58,7 +58,7 @@ public class solution3040 {
     */
     }
 
-    public void solution1427() throws IOException {
+    public void solution3040() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int[] arr = new int[9];
