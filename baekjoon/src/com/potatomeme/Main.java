@@ -12,26 +12,16 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        int num1 = Integer.parseInt(st.nextToken());
-        int num2 = Integer.parseInt(st.nextToken());
-        int result = solution1357_sub(solution1357_sub(num1) + solution1357_sub(num2));
-        bw.write(result + "");
-
+        char[] word = br.readLine().toCharArray();
+        int cnt = 0;
+        for(char c : word){
+            if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'){
+                cnt++;
+            }
+        }
+        bw.write(cnt+"");
         br.close();
         bw.flush();
         bw.close();
-    }
-
-    public static int solution1357_sub(int num) {
-        if (num >= 1000) {
-            return num % 10 * 1000 + num / 10 % 10 * 100 + num / 100 % 10 * 10 + +num / 1000;
-        } else if (num >= 100) {
-            return num % 10 * 100 + num / 10 % 10 * 10 + num / 100;
-        } else if (num >= 10) {
-            return num % 10 * 10 + num / 10;
-        } else {
-            return num;
-        }
     }
 }
