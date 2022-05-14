@@ -12,8 +12,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String word = br.readLine();
-        bw.write(word.length()+"");
+        char[] word = br.readLine().toCharArray();
+        for (char i : word) {
+            if (i > 96) {
+                bw.write(i - 32);
+            } else {
+                bw.write(i + 32);
+            }
+        }
 
         br.close();
         bw.flush();
