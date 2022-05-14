@@ -12,11 +12,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int T = Integer.parseInt(br.readLine());
-        StringTokenizer st;
+        StringTokenizer st = new StringTokenizer(br.readLine(), "-");
+        int T = st.countTokens();
         for (int i = 0; i < T; i++) {
-            st = new StringTokenizer(br.readLine(), ",");
-            bw.write(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()) + "\n");
+            bw.write(st.nextToken().charAt(0) + "");
         }
 
         br.close();
