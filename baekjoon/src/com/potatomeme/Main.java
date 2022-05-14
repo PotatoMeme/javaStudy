@@ -12,13 +12,11 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        char[] word = br.readLine().toCharArray();
-        for (char i : word) {
-            if (i > 96) {
-                bw.write(i - 32);
-            } else {
-                bw.write(i + 32);
-            }
+        int T = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+        for (int i = 0; i < T; i++) {
+            st = new StringTokenizer(br.readLine(), ",");
+            bw.write(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()) + "\n");
         }
 
         br.close();
