@@ -11,30 +11,30 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr1 = new int[10];
-        int[] arr2 = new int[10];
-        for(int i=0;i<10;i++){
-            arr1[i] = Integer.parseInt(br.readLine());
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int T = Integer.parseInt(st.nextToken());
+        int total = Integer.parseInt(st.nextToken());
+        int[] arr = new int[T];
+        for (int i = 0; i < T; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
         }
-        for(int i=0;i<10;i++){
-            arr2[i] = Integer.parseInt(br.readLine());
+        T--;
+        int cnt = 0;
+        int saveData;
+        while (true) {
+            if (total/arr[T] >= 1) {
+                saveData = total/arr[T];
+                total -= arr[T]*saveData;
+                cnt += saveData;
+            } else {
+                T--;
+            }
+            if (total == 0) break;
         }
-        bw.write(solution5576_sub(arr1)+" "+solution5576_sub(arr2));
+        bw.write(cnt + "");
         br.close();
         bw.flush();
         bw.close();
-    }
-    public static int solution5576_sub(int[] arr) {
-        int temp;
-        for(int i=0;i<3;i++){
-            for(int j=1;j<10-i;j++){
-                if(arr[j-1]>arr[j]){
-                    temp = arr[j-1];
-                    arr[j-1] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-        return arr[7]+arr[8]+arr[9];
     }
 }
