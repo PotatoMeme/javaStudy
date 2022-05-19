@@ -12,14 +12,12 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        char[] word = br.readLine().toCharArray();
-        int cnt = 0;
-        for(char c : word){
-            if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'){
-                cnt++;
-            }
+        int T = Integer.parseInt(br.readLine());
+        for(int i = 0;i<T;i++){
+            String str = br.readLine();
+            bw.write(str.substring(0,1).toUpperCase()+str.substring(1)+"\n");
         }
-        bw.write(cnt+"");
+
         br.close();
         bw.flush();
         bw.close();
