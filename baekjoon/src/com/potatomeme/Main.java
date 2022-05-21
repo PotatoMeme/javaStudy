@@ -12,10 +12,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int T = Integer.parseInt(br.readLine());
-        for(int i = 0;i<T;i++){
-            String str = br.readLine();
-            bw.write(str.substring(0,1).toUpperCase()+str.substring(1)+"\n");
+        String str =br.readLine();
+        int len = str.length();
+        for (int i=0;i<len/10;i++){
+            bw.write(str.substring(i*10,(i+1)*10)+"\n");
+        }
+        if(len%10 !=0){
+            bw.write(str.substring(len/10*10));
         }
 
         br.close();
