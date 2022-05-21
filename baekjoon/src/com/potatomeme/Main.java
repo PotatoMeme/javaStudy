@@ -12,14 +12,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String str =br.readLine();
-        int len = str.length();
-        for (int i=0;i<len/10;i++){
-            bw.write(str.substring(i*10,(i+1)*10)+"\n");
-        }
-        if(len%10 !=0){
-            bw.write(str.substring(len/10*10));
-        }
+        StringTokenizer st = new StringTokenizer(br.readLine(),",");
+        bw.write(st.countTokens()+"");
 
         br.close();
         bw.flush();
