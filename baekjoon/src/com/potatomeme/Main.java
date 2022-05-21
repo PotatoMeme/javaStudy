@@ -12,10 +12,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int T = Integer.parseInt(br.readLine());
-        for(int i=0;i<T;i++){
+        while (true){
             String str = br.readLine();
-            bw.write(str.substring(0,1)+str.substring(str.length()-1)+"\n");
+            if(str.equals("END")) break;
+            bw.write(new StringBuffer(str).reverse().toString()+"\n");
         }
 
         br.close();
