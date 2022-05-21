@@ -12,8 +12,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(),",");
-        bw.write(st.countTokens()+"");
+        char[] str = br.readLine().toCharArray();
+        int[] result = new int['z'-'a'+1];
+        for(char c:str){
+            result[c-'a']++;
+        }
+        for(int i:result){
+            bw.write(i+" ");
+        }
 
         br.close();
         bw.flush();
