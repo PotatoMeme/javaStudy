@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_hello">Hello!!</string>
+    <string name = "app_textformat">count : %d \n num : %d</string>
+
+    <string-array name = "app_color">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+    </string-array>
+</resources>

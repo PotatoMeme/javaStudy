@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_hello">안녕하세요!!</string>
+    <string name = "app_textformat">카운트 : %d \n 현재값 : %d</string>
+
+    <string-array name = "app_color">
+        <item>빨강</item>
+        <item>파랑</item>
+        <item>초록</item>
+    </string-array>
+</resources>
