@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // 카테고리
         // 해당 액티비티의 분류에 해당
         // 액션(Action)과 마찬가지로 Intent 클래스에 미리 정의되어 있음
-                
+
         startActivity(intent);
     }
 }
