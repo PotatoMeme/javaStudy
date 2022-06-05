@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ToolbarExam</string>
+    <string name = "myAppName">"ToolBar 구현예제"</string>
+</resources>
