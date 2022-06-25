@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "356682700545",
+    "project_id": "testlogin-a56b2",
+    "storage_bucket": "testlogin-a56b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356682700545:android:e7ca9f373c799e3a096d00",
+        "android_client_info": {
+          "package_name": "com.inndiary.testlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356682700545-96m10ugb8ft3or033vkbsqp3vqjn7rge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inndiary.testlogin",
+            "certificate_hash": "3144a9bf000ea1c033dd020693d8bf65f207c26b"
+          }
+        },
+        {
+          "client_id": "356682700545-urhi4cabug7t4m0qrrnsgqj71qqqtj4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeru7MSxYGmEEiz8xAJi3uFc808I9Ah20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356682700545-urhi4cabug7t4m0qrrnsgqj71qqqtj4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
