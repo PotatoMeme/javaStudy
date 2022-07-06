@@ -58,11 +58,13 @@ public class baekjoon_3085 {
 
     // 1안 인접한 2개의 바꾸고 채크 중 최대인 n이나올경우 스탑하고 출력
     // (n*(n-1)*2)*(2*n*n)
-    static char[][] board;
+    private static char[][] board;
+    private static int size;
+
     public static void main(String arg[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int size = Integer.parseInt(br.readLine());
+        size = Integer.parseInt(br.readLine());
         board = new char[size][size];
         for (int i = 0; i < size; i++) board[i] = br.readLine().toCharArray();
         bw.write(String.valueOf(CheckAll()));
@@ -72,73 +74,57 @@ public class baekjoon_3085 {
     }
 
     public static int CheckAll() {
-        int check, checkSave1,checkSave2;
-        check = checkSave1 = checkSave2 = 0;
-        int len = board.length;
-        for (int i = 0;i<len;i++) {
-            for (int j = 0;j<len-1;j++) {
-                if (board[i][j] != board[i][j+1]){
-                    char temp = board[i][j+1];
-                    board[i][j+1] = board[i][j];
-                    board[i][j] = temp;
-                    for (int k = 0;k<len;k++) {
-                        for (int l = 0;l<len-1;l++) {
-                            checkSave1++;
-                            checkSave2++;
-                            if (board[k][l] != board[k][l+1]){
-                                check = checkSave1 > check ? checkSave1 : check;
-                                if(check == len) return check;
-                                checkSave1 = 0;
-                            }
-                            if (board[l][k] != board[l+1][k]){
-                                check = checkSave2 > check ? checkSave2 : check;
-                                if(check == len) return check;
-                                checkSave2 = 0;
-                            }
-                        }
-                        checkSave1++;
-                        checkSave2++;
-                        check = checkSave1 > check ? checkSave1 : check;
-                        check = checkSave2 > check ? checkSave2 : check;
-                        if(check == len) return check;
-                        checkSave1 = checkSave2 = 0;
-                    }
-                    temp = board[i][j+1];
-                    board[i][j+1] = board[i][j];
-                    board[i][j] = temp;
+        int check = 0;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - 1; j++) {
+                if (board[i][j] != board[i][j + 1]) {
+                    SwapArr(i, j, i, j + 1);
+                    check = Math.max(check, CheckArr());
+                    if (check == size) return check;
+                    SwapArr(i, j, i, j + 1);
                 }
-                if (board[j][i] != board[j+1][i]){
-                    char temp = board[j+1][i];
-                    board[j+1][i] = board[j][i];
-                    board[j][i] = temp;
-                    for (int k = 0;k<len;k++) {
-                        for (int l = 0;l<len-1;l++) {
-                            checkSave1++;
-                            checkSave2++;
-                            if (board[k][l] != board[k][l+1]){
-                                check = checkSave1 > check ? checkSave1 : check;
-                                if(check == len) return check;
-                                checkSave1 = 0;
-                            }
-                            if (board[l][k] != board[l+1][k]){
-                                check = checkSave2 > check ? checkSave2 : check;
-                                if(check == len) return check;
-                                checkSave2 = 0;
-                            }
-                        }
-                        checkSave1++;
-                        checkSave2++;
-                        check = checkSave1 > check ? checkSave1 : check;
-                        check = checkSave2 > check ? checkSave2 : check;
-                        if(check == len) return check;
-                        checkSave1 = checkSave2 = 0;
-                    }
-                    temp = board[j+1][i];
-                    board[j+1][i] = board[j][i];
-                    board[j][i] = temp;
+                if (board[j][i] != board[j + 1][i]) {
+                    SwapArr(j, i, j + 1, i);
+                    check = Math.max(check, CheckArr());
+                    if (check == size) return check;
+                    SwapArr(j, i, j + 1, i);
                 }
             }
         }
         return check;
+    }
+
+    public static int CheckArr() {
+        int check, checkSave1, checkSave2;
+        check = checkSave1 = checkSave2 = 0;
+        for (int k = 0; k < size; k++) {
+            for (int l = 0; l < size - 1; l++) {
+                checkSave1++;
+                checkSave2++;
+                if (board[k][l] != board[k][l + 1]) {
+                    check = checkSave1 > check ? checkSave1 : check;
+                    if (check == size) return check;
+                    checkSave1 = 0;
+                }
+                if (board[l][k] != board[l + 1][k]) {
+                    check = checkSave2 > check ? checkSave2 : check;
+                    if (check == size) return check;
+                    checkSave2 = 0;
+                }
+            }
+            checkSave1++;
+            checkSave2++;
+            check = checkSave1 > check ? checkSave1 : check;
+            check = checkSave2 > check ? checkSave2 : check;
+            if (check == size) return check;
+            checkSave1 = checkSave2 = 0;
+        }
+        return check;
+    }
+
+    public static void SwapArr(int i1, int j1, int i2, int j2) {
+        char temp = board[i2][j2];
+        board[i2][j2] = board[i1][j1];
+        board[i1][j1] = temp;
     }
 }
