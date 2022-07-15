@@ -16,3 +16,4 @@ rootProject.name = "PracticeSpace"
 include ':app'
 include ':callbackexam'
 include ':screenslideexam'
+include ':functest'
