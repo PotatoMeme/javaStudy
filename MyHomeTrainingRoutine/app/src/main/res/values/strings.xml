@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MyHomeTrainingRoutine</string>
+    <string-array name = "state">
+        <item>상체</item>
+        <item>하체</item>
+        <item>전신</item>
+        <item>휴식</item>
+        <item>자율</item>
+    </string-array>
+    <string-array name = "detail">
+        <item>팔굽혀펴기</item>
+        <item>턱걸이</item>
+        <item>스쿼트</item>
+        <item>버피테스트</item>
+        <item>달리기</item>
+    </string-array>
 </resources>

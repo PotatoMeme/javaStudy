@@ -2,7 +2,10 @@ package com.potatomeme.myhometrainingroutine;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -27,6 +30,13 @@ public class MainActivity2 extends AppCompatActivity {
         int dayWeek = cal.get(Calendar.DAY_OF_WEEK);
         today_routine_text = findViewById(R.id.today_routine_text);
         today_routine_text.setText(String.format("오늘은 %s다",today_routine_text_arr[dayWeek-1]));
+
+        findViewById(R.id.history).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity2.this,MainActivity3.class));
+            }
+        });
         /*switch (dayWeek){
             case 1:
                 break;
