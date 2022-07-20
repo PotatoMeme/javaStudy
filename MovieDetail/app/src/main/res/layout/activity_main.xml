@@ -108,29 +108,31 @@
                     android:orientation="horizontal">
 
                     <ImageButton
+                        android:id="@+id/good"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/good" />
+                        android:background="@drawable/good_default" />
 
                     <TextView
                         android:id="@+id/movie_good_text"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="137"
+                        android:text="1"
                         android:textColor="#FFFFFFFF"
                         android:textSize="18sp" />
 
                     <ImageButton
+                        android:id="@+id/bad"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="30dp"
-                        android:background="@drawable/bad" />
+                        android:background="@drawable/bad_default" />
 
                     <TextView
                         android:id="@+id/movie_bad_text"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="137"
+                        android:text="1"
                         android:textColor="#FFFFFFFF"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -216,12 +218,11 @@
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
-                        <RatingBar
+                        <androidx.appcompat.widget.AppCompatRatingBar
                             android:id="@+id/movie_ratingbar"
                             style="?android:attr/ratingBarStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
                             android:numStars="5"
                             android:rating="2"
                             android:stepSize="0.5" />
@@ -407,26 +408,28 @@
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginHorizontal="10dp">
-            </ListView>
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="10dp"></ListView>
+
             <Button
                 android:id="@+id/movie_all_reward_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:background="@drawable/cleanbtn_type2"
                 android:text="모두보기"
-                android:layout_margin="10dp"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:background="@android:color/background_light"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/facebook"
                 android:layout_width="70dp"
@@ -435,6 +438,7 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/ic_facebook"
                 android:padding="10dp" />
+
             <ImageButton
                 android:id="@+id/kakao"
                 android:layout_width="70dp"
@@ -443,14 +447,15 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/ic_kakao"
                 android:padding="10dp" />
+
             <Button
                 android:layout_width="200dp"
                 android:layout_height="70dp"
-                android:text="예매하기"
-                android:textColor="#ffffffff"
-                android:background="@android:color/holo_red_light"
                 android:layout_margin="10dp"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="8dp"
+                android:background="@android:color/holo_red_light"
+                android:text="예매하기"
+                android:textColor="#ffffffff" />
 
         </LinearLayout>
 

@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1955" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/bad.xml" value="0.21" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/cleanbtn_type1.xml" value="0.1" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/cleanbtn_type2.xml" value="0.1235" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/good.xml" value="0.21" />
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/ic_baseline_emoji_people_24.xml" value="0.1955" />
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.1955" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/ic_baseline_rate_review_24.xml" value="0.1" />
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1955" />
         <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/drawable/movie_detail_top_background.xml" value="0.1" />
-        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/layout/activity_main.xml" value="0.27800829875518673" />
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/D/AndroidProjects/MovieDetail/app/src/main/res/layout/reward_list.xml" value="0.33" />
       </map>
     </option>
   </component>
