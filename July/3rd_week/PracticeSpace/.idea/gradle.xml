@@ -13,7 +13,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/callbackexam" />
             <option value="$PROJECT_DIR$/functest" />
+            <option value="$PROJECT_DIR$/intenttest" />
             <option value="$PROJECT_DIR$/screenslideexam" />
+            <option value="$PROJECT_DIR$/scrollview" />
           </set>
         </option>
       </GradleProjectSettings>

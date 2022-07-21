@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.potatomeme">
+    package="com.potatomeme.intenttest">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PracticeSpace">
         <activity
-            android:name=".MainActivity3"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.PracticeSpace.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -14,6 +14,9 @@
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/functest/src/main/res/drawable/test_3.xml" value="0.2125" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/functest/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/functest/src/main/res/layout/activity_main2.xml" value="0.5" />
+        <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/functest/src/main/res/layout/activity_main3.xml" value="0.184346035015448" />
+        <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/intenttest/src/main/res/layout/activity_main.xml" value="0.3134057971014493" />
+        <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/intenttest/src/main/res/layout/activity_main2.xml" value="0.3134057971014493" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/fragment_1.xml" value="0.3515625" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/fragment_2.xml" value="0.3515625" />
@@ -22,6 +25,7 @@
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/fragment_color.xml" value="0.36614583333333334" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/fragment_item_list.xml" value="0.36614583333333334" />
         <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/screenslideexam/src/main/res/layout/fragment_plus_one.xml" value="0.36614583333333334" />
+        <entry key="..\:/D/androidStudy/July/3rd_week/PracticeSpace/scrollview/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
