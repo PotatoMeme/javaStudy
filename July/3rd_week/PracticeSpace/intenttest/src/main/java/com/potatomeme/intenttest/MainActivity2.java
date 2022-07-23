@@ -42,7 +42,7 @@ public class MainActivity2 extends AppCompatActivity {
                 Log.d("Names: ",str);
             }
         }
-        Man man = (Man) intent.getSerializableExtra("kim");
+        Man man = (Man) intent.getParcelableExtra("kim");//Parcelable 객체 받기
         if(man != null){
             Log.d("Names: ",man.toString());
         }

@@ -3,42 +3,53 @@ package com.potatomeme.intenttest;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.sql.Array;
+
 public class Man implements Parcelable {
 
-
-
     private String name;
-    private boolean sex;
     private int age;
 
-    public Man(String name, boolean sex, int age) {
+    public Man(String name, int age) {
         this.name = name;
-        this.sex = sex;
         this.age = age;
     }
 
-    /*public Man(Parcel src) {
+    public Man(Parcel src) {//객체를 받았을 때 직렬화를 풀어주는 로직
         this.name = src.readString();
-        this.sex = src.readBoolean();
         this.age = src.readInt();
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator(){
-        public Man
+        public Man createFromParcel(Parcel src){
+            return  new Man(src);
+        }
+
+        public Man[] newArray(int size){
+            return new Man[size];
+        }
+    };
+
+    /*public static final Creator<Man> CREATOR = new Creator<Man>() {
+        @Override
+        public Man createFromParcel(Parcel in) {
+            return new Man(in);
+        }
+
+        @Override
+        public Man[] newArray(int size) {
+            return new Man[size];
+        }
     };*/
 
     @Override
     public String toString() {
         return "Man{" +
                 "name='" + name + '\'' +
-                ", sex=" + this.getSex() +
                 ", age=" + age +
                 '}';
     }
 
-    private String getSex(){
-        return sex?"남자":"여자";
-    }
 
     @Override
     public int describeContents() {
@@ -46,7 +57,8 @@ public class Man implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
+    public void writeToParcel(Parcel parcel, int i) {//객체가 직렬화되어 보내지기 이전에 데이터를 직렬화시켜주는 메소드
+        parcel.writeString(name);
+        parcel.writeInt(age);
     }
 }

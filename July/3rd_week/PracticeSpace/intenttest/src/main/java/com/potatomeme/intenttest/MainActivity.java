@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -16,12 +17,37 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> activityResultLauncher;
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences preferences = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("name", "저장한 내용");
+        editor.putInt("count", count);
+        editor.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences preferences = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        if (preferences != null) {
+            String name = preferences.getString("name", "");
+            count = preferences.getInt("count", 0);
+            count++;
+            Toast.makeText(this, "복구 : " + name + ", count:" + count, Toast.LENGTH_SHORT).show();
+        } else {
+            count = 0;
+        }
     }
 
     // Intent.FLAG_ACTIVITY_SINGLE_TOP 플래그
@@ -68,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.button4).setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-            Man kim = new Man("kim",true,19);
-            intent.putExtra("kim", (Parcelable) kim);
+            Man kim = new Man("kim", 19);
+            intent.putExtra("kim", kim);
             activityResultLauncher.launch(intent);
         });
     }
