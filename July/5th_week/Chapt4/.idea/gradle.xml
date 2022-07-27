@@ -10,9 +10,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/actionbar" />
+            <option value="$PROJECT_DIR$/actionbar/viewpager" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/fragment" />
             <option value="$PROJECT_DIR$/fragmenttoimage" />
+            <option value="$PROJECT_DIR$/tab" />
+            <option value="$PROJECT_DIR$/viewpager" />
           </set>
         </option>
       </GradleProjectSettings>

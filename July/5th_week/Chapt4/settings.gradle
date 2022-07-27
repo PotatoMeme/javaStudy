@@ -16,3 +16,7 @@ rootProject.name = "Chapt4"
 include ':app'
 include ':fragment'
 include ':fragmenttoimage'
+include ':actionbar'
+include ':tab'
+include ':actionbar:viewpager'
+include ':viewpager'
