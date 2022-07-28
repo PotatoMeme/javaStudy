@@ -4,9 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/actionbar/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/actionbar/src/main/res/layout/activity_main.xml" value="0.338768115942029" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/actionbar/src/main/res/layout/search_layout.xml" value="0.33" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/actionbar/src/main/res/menu/menu_option.xml" value="0.3651041666666667" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/app/src/main/res/layout/fragment_main.xml" value="0.35280797101449274" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/end/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/end/src/main/res/layout/fragment.xml" value="0.2" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/end/src/main/res/layout/fragment1.xml" value="0.11775362318840579" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragment/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragment/src/main/res/layout/fragment_layout.xml" value="0.35280797101449274" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragment/src/main/res/layout/fragment_main.xml" value="0.18229166666666666" />
@@ -14,6 +18,17 @@
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragmenttoimage/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragmenttoimage/src/main/res/layout/fragment_list.xml" value="0.3609375" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/fragmenttoimage/src/main/res/layout/fragment_viewer.xml" value="0.3609375" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/activity_main.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/activity_main2.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/app_bar_main.xml" value="0.18" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/content_main.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/fragment_gallery.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/fragment_home.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/fragment_slideshow.xml" value="0.338768115942029" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/layout/nav_header_main.xml" value="0.14166666666666666" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/menu/activity_main_drawer.xml" value="0.3619791666666667" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/menu/main_activity2.xml" value="0.3619791666666667" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/navigation/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/tab/src/main/res/layout/activity_main.xml" value="0.3129528985507246" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/tab/src/main/res/layout/frament1.xml" value="0.3129528985507246" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chapt4/tab/src/main/res/layout/frament2.xml" value="0.3129528985507246" />
