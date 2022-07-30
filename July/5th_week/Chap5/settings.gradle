@@ -16,3 +16,5 @@ rootProject.name = "Chap5"
 include ':app'
 include ':thread'
 include ':asynctask'
+include ':socket'
+include ':server'

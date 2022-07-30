@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView1,textView2;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(view -> {
             thread = new BackgroundThread();
             thread.start();
-
+            Toast.makeText(getApplicationContext(), "Complete2", Toast.LENGTH_SHORT).show();
         });
         btn2.setOnClickListener(view -> {
             new Thread(new Runnable() {
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 // settingText(String.valueOf(value));
                 // 에러발생 - 메인스레드만 UI 변경가능
             }
+
         }
     }
     class ValueHandler extends Handler{
