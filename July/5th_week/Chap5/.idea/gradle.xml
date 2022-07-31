@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/server" />
             <option value="$PROJECT_DIR$/socket" />
             <option value="$PROJECT_DIR$/thread" />
+            <option value="$PROJECT_DIR$/volley" />
+            <option value="$PROJECT_DIR$/webrequest" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,9 +1,8 @@
 package com.potatomeme.server;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Service;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 
 import java.io.ObjectInputStream;
@@ -11,24 +10,34 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MainActivity extends AppCompatActivity {
-
+public class ServerService extends Service {
+    ServerThread thread;
+    public ServerService() {
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        init();
+    public void onCreate() {
+        super.onCreate();
+        thread = new ServerThread();
+        thread.start();
     }
-    private void init(){
-        findViewById(R.id.button1).setOnClickListener(view -> {
-            //ServerThread thread = new ServerThread();
-            //thread.start();
-            Intent intent = new Intent(this,ServerService.class);
-            startService(intent);
-        });
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
     }
-    /*
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        // TODO: Return the communication channel to the service.
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
     class ServerThread extends Thread{
         private static final int port = 5001;
         @Override
@@ -53,6 +62,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    */
-
 }

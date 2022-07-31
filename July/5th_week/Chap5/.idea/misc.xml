@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/D/androidStudy/July/5th_week/Chap5/asynctask/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chap5/server/src/main/res/layout/activity_main.xml" value="0.1875" />
-        <entry key="..\:/D/androidStudy/July/5th_week/Chap5/socket/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chap5/socket/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/D/androidStudy/July/5th_week/Chap5/thread/src/main/res/layout/activity_main.xml" value="0.3546195652173913" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chap5/volley/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/D/androidStudy/July/5th_week/Chap5/webrequest/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
   </component>
