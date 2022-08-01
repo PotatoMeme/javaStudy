@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/asynctask" />
+            <option value="$PROJECT_DIR$/imagedownloader" />
+            <option value="$PROJECT_DIR$/json" />
             <option value="$PROJECT_DIR$/server" />
             <option value="$PROJECT_DIR$/socket" />
             <option value="$PROJECT_DIR$/thread" />
