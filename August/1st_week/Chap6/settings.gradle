@@ -12,14 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Chap5"
+rootProject.name = "Chap6"
 include ':app'
-include ':thread'
-include ':asynctask'
-include ':socket'
-include ':server'
-include ':webrequest'
-include ':volley'
-include ':json'
-include ':imagedownloader'
-include ':movieapi'
+include ':database'

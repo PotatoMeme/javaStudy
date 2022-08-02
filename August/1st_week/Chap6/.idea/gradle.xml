@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -11,15 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/asynctask" />
-            <option value="$PROJECT_DIR$/imagedownloader" />
-            <option value="$PROJECT_DIR$/json" />
-            <option value="$PROJECT_DIR$/movieapi" />
-            <option value="$PROJECT_DIR$/server" />
-            <option value="$PROJECT_DIR$/socket" />
-            <option value="$PROJECT_DIR$/thread" />
-            <option value="$PROJECT_DIR$/volley" />
-            <option value="$PROJECT_DIR$/webrequest" />
+            <option value="$PROJECT_DIR$/database" />
           </set>
         </option>
       </GradleProjectSettings>
