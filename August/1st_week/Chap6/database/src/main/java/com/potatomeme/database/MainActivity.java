@@ -1,9 +1,12 @@
 package com.potatomeme.database;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,32 +51,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void selectData(String tableName) {
-        println("selectData() 호출됨");
-        if (database != null) {
-            String sql = "select * from " + tableName;
-            Cursor cursor = database.rawQuery(sql, null);
-            println("조회된 data 개수 :" + cursor.getCount());
-            for (int i = 0;i<cursor.getCount();i++){
-                cursor.moveToNext();
-                int id = cursor.getInt(0);
-                String name = cursor.getString(1);
-                int age = cursor.getInt(2);
-                String mobile = cursor.getString(3);
-                println("#"+id+"->"+name+", "+age+", "+mobile);
-            }
-            cursor.close();
-        } else {
-            println("먼전 DB를 열어 주세요");
-        }
-    }
+
 
     private void openDatabase(String dataBaseName) {
         println("openDatabase() 호출됨");
-        database = openOrCreateDatabase(dataBaseName, MODE_PRIVATE, null);
+        /*database = openOrCreateDatabase(dataBaseName, MODE_PRIVATE, null);
         if (database != null) {
             println("DB 오픈됨");
-        }
+        }*/
+        DatabaseHelper helper = new DatabaseHelper(this,dataBaseName,null,1);
+        database = helper.getWritableDatabase();
     }
 
     private void createTable(String tableName) {
@@ -103,8 +90,65 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void selectData(String tableName) {
+        println("selectData() 호출됨");
+        if (database != null) {
+            String sql = "select * from " + tableName;
+            Cursor cursor = database.rawQuery(sql, null);
+            println("조회된 data 개수 :" + cursor.getCount());
+            for (int i = 0; i < cursor.getCount(); i++) {
+                cursor.moveToNext();
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                int age = cursor.getInt(2);
+                String mobile = cursor.getString(3);
+                println("#" + id + "->" + name + ", " + age + ", " + mobile);
+            }
+            cursor.close();
+        } else {
+            println("먼전 DB를 열어 주세요");
+        }
+    }
+
     private void println(String data) {
         stringBuilder.append(data).append("\n");
         textView.setText(stringBuilder);
+    }
+
+    class DatabaseHelper extends SQLiteOpenHelper {
+
+        public DatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+            super(context, name, factory, version);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase sqLiteDatabase) {
+            println("onCreate() 호출됨");
+            String tableName = "customer";
+            String sql = "CREATE TABLE if not exists " + tableName + " (" +
+                    "_id integer PRIMARY KEY autoincrement, " +
+                    "name text, " +
+                    "age integer, " +
+                    "mobile text)";
+            sqLiteDatabase.execSQL(sql);
+            println(tableName + " table 생성됨");
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+            println("onUpgrade() 호출됨 : " + i + ", " + i1);
+            if (i1 > 1) {
+                String tableName = "customer";
+                sqLiteDatabase.execSQL("drop table if exists " + tableName);
+                println(tableName+"테이블 삭제함");
+                String sql = "CREATE TABLE if not exists " + tableName + " (" +
+                        "_id integer PRIMARY KEY autoincrement, " +
+                        "name text, " +
+                        "age integer, " +
+                        "mobile text)";
+                sqLiteDatabase.execSQL(sql);
+                println(tableName + " table 새로 생성됨");
+            }
+        }
     }
 }
