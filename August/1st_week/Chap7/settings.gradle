@@ -16,3 +16,6 @@ rootProject.name = "Chap7"
 include ':app'
 include ':camera'
 include ':capture'
+include ':mp3player'
+include ':videoplayer'
+include ':recyclerview'
