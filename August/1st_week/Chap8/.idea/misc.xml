@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/D/androidStudy/August/1st_week/Chap8/pagesliding/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/D/androidStudy/August/1st_week/Chap8/pagesliding/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/D/androidStudy/August/1st_week/Chap8/splashscreen/src/main/res/drawable/splash_background.xml" value="0.2125" />
+        <entry key="..\:/D/androidStudy/August/1st_week/Chap8/splashscreen/src/main/res/drawable/splash_base.xml" value="0.2125" />
+        <entry key="..\:/D/androidStudy/August/1st_week/Chap8/splashscreen/src/main/res/layout/activity_main.xml" value="0.35280797101449274" />
         <entry key="..\:/D/androidStudy/August/1st_week/Chap8/threadanimation/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/D/androidStudy/August/1st_week/Chap8/threadanimation/src/main/res/drawable/test.xml" value="0.1" />
         <entry key="..\:/D/androidStudy/August/1st_week/Chap8/threadanimation/src/main/res/layout/activity_main.xml" value="0.1" />
