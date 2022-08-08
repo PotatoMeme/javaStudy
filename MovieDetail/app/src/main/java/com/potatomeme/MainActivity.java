@@ -27,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+
+
+    }
+
+    private void init(){
         goodState = badState = false;
         goodText = findViewById(R.id.movie_good_text);
         badText = findViewById(R.id.movie_bad_text);
@@ -80,9 +86,10 @@ public class MainActivity extends AppCompatActivity {
         mReward = new ArrayList<>();
         mReward.add(new Reward());
         mReward.add(new Reward("test"));
+
+        mReward.add(new Reward("test1"));
         adapter = new RewardListViewAdapter(mReward);
         listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
-
     }
 }
