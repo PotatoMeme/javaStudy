@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/test1"
+        android:id="@+id/menu_todo"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:icon="@drawable/ic_calendar"
         android:title="일정"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/test2"
+        android:id="@+id/menu_home"
         android:enabled="true"
-        android:icon="@drawable/home_ic"
+        android:icon="@drawable/ic_home"
         android:title="홈"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/test3"
+        android:id="@+id/menu_setting"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/ic_settings"
         android:title="설정"
         app:showAsAction="always"/>
 </menu>

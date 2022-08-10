@@ -11,7 +11,7 @@ import com.potatomeme.appdesiginformat.entity.Todo;
 
 import java.util.List;
 
-public class RecentListAdapter extends BaseAdapter {
+public class RecentListAdapter extends BaseAdapter {// to do adapter
 
     private List<Todo> mTodo;
 
@@ -19,6 +19,15 @@ public class RecentListAdapter extends BaseAdapter {
         this.mTodo = mTodo;
     }
 
+    public void addItem(Todo todo){
+        mTodo.add(todo);
+        this.notifyDataSetChanged();
+    }
+
+    public void changeItems(List<Todo> mTodo) {
+        this.mTodo = mTodo;
+        this.notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return mTodo.size();
@@ -37,7 +46,7 @@ public class RecentListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder viewHolder;
-        if(view == null) {//최초는 null 그이후에는 재사용할수 있음
+        if (view == null) {
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.recent_item, viewGroup, false);
@@ -46,9 +55,9 @@ public class RecentListAdapter extends BaseAdapter {
             TextView dateText = view.findViewById(R.id.recent_date);
             viewHolder.titleText = titleText;
             viewHolder.dateText = dateText;
-            view.setTag(viewHolder);// 저장
+            view.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) view.getTag(); // 재사용시 저장한값을 가져옴
+            viewHolder = (ViewHolder) view.getTag();
         }
 
         Todo todo = mTodo.get(i);
@@ -57,7 +66,7 @@ public class RecentListAdapter extends BaseAdapter {
         return view;
     }
 
-    static class ViewHolder{
+    static class ViewHolder {
         TextView dateText;
         TextView titleText;
     }
