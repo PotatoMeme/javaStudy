@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/custom_back"
-    tools:context=".MainActivity">
+    tools:context=".UpdateActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/detail_toolBar"
+            android:id="@+id/edit_toolBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Update"
@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:id="@+id/submit_button"
                 android:fontFamily="@font/cafe24"
                 android:textStyle="bold"
                 android:paddingLeft="30dp"

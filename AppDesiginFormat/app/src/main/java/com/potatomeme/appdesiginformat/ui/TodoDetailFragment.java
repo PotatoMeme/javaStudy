@@ -30,9 +30,9 @@ public class TodoDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todo_detail,container,false);
-        TextView todo_date_text = rootView.findViewById(R.id.todo_date_text);
-        TextView todo_title_text = rootView.findViewById(R.id.todo_title_text);
-        TextView todo_content_text = rootView.findViewById(R.id.todo_content_text);
+        TextView date_text = rootView.findViewById(R.id.todo_date_text);
+        TextView title_text = rootView.findViewById(R.id.todo_title_text);
+        TextView content_text = rootView.findViewById(R.id.todo_content_text);
         return rootView;
     }
 

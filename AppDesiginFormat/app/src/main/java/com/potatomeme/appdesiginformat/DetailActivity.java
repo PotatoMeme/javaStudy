@@ -5,15 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
 
 import com.google.android.material.navigation.NavigationBarView;
-import com.potatomeme.appdesiginformat.ui.CalendarFragment;
 import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
 import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
 
@@ -23,6 +28,7 @@ public class DetailActivity extends AppCompatActivity {
     DiaryDetailFragment diaryDetailFragment;
     Toolbar toolbar;
     NavigationBarView navigationView;
+    Dialog deleteDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +57,19 @@ public class DetailActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.menu_update:
-                        //Toast.makeText(getApplicationContext(),"menu_update clicked",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),UpdateActivity.class);
+                        startActivity(intent);
                         return true;
-
+                    default:
+                        return false;
                 }
-                return true;
             }
         });
+        deleteDialog = new Dialog(this);
+        deleteDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        deleteDialog.setContentView(R.layout.popup_delete);
+        deleteDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
 
     }
 
@@ -76,8 +88,15 @@ public class DetailActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menu_del:
-                //Intent intent = new Intent();
-                //startActivity(intent);
+                deleteDialog.show();
+                Button button_cancel = deleteDialog.findViewById(R.id.cancel_button);
+                button_cancel.setOnClickListener(view1 -> {
+                    deleteDialog.dismiss();
+                });
+                Button button_ok = deleteDialog.findViewById(R.id.ok_button);
+                button_ok.setOnClickListener(view1 -> {
+                    deleteDialog.dismiss();
+                });
                 return true;
             default:
                 return false;

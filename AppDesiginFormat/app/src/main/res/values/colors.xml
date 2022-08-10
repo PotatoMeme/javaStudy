@@ -11,5 +11,7 @@
     <color name="custom_soil">#504031</color>
     <color name="custom_cactus">#375A4F</color>
     <color name="custom_carrot">#AF7946</color>
+    <color name="custom_red">#EA5454</color>
+    <color name="custom_pink">#FAD7D6</color>
     <color name="custom_gray">#3C3C3C</color>
 </resources>

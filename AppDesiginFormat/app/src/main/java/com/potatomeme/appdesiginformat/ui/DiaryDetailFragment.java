@@ -30,11 +30,11 @@ public class DiaryDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_diary_detail,container,false);
-        TextView diary_date_text = rootView.findViewById(R.id.diary_date_text);
-        TextView diary_status_text = rootView.findViewById(R.id.diary_status);
-        TextView diary_weather_text = rootView.findViewById(R.id.diary_weather);
-        TextView diary_title_text = rootView.findViewById(R.id.diary_title_text);
-        TextView diary_content_text = rootView.findViewById(R.id.diary_content_text);
+        TextView date_text = rootView.findViewById(R.id.diary_date_text);
+        TextView status_text = rootView.findViewById(R.id.diary_status);
+        TextView weather_text = rootView.findViewById(R.id.diary_weather);
+        TextView title_text = rootView.findViewById(R.id.diary_title_text);
+        TextView content_text = rootView.findViewById(R.id.diary_content_text);
         return rootView;
     }
 
