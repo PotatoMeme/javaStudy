@@ -1,3 +1,2 @@
 # javaStudy
-자바 공부
-https://github.com/PotatoMeme/javaStudy.git
+자바에 익숙해지기위하여 코딩테스트나 문법등을 정리해놓은 공간입니다!
