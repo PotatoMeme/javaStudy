@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.potatomeme.appdesiginformat.AddActivity;
 import com.potatomeme.appdesiginformat.DetailActivity;
 import com.potatomeme.appdesiginformat.MainActivity;
 import com.potatomeme.appdesiginformat.R;
@@ -29,7 +30,7 @@ public class CalendarFragment extends Fragment {
     ViewGroup rootView;
 
     CalendarView calendarView;
-    Button button_seeall;
+    Button button_plus,button_seeall;
 
     ListView listView;
     ArrayList<Todo> listTodo;
@@ -48,6 +49,11 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_calendar,container,false);
+        button_plus = rootView.findViewById(R.id.calendar_plus);
+        button_plus.setOnClickListener(view -> {
+            Intent intent = new Intent(container.getContext(), AddActivity.class);
+            startActivity(intent);
+        });
         button_seeall = rootView.findViewById(R.id.calendar_seeall);
 
         listViewSetting(container);

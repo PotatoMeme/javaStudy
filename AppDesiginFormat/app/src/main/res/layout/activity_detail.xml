@@ -23,7 +23,8 @@
             app:title="Detail"
             app:titleCentered="true"
             app:titleTextColor="@color/custom_gray"
-            app:theme="@style/ThemeOverlay.AppCompat.Light">
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
+            >
 
         </com.google.android.material.appbar.MaterialToolbar>
 

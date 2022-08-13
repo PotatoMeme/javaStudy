@@ -1,30 +1,28 @@
 package com.potatomeme.appdesiginformat;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationBarView;
-import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+
+import com.potatomeme.appdesiginformat.ui.DiaryAddFragment;
 import com.potatomeme.appdesiginformat.ui.DiaryUpdateFragment;
-import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
+import com.potatomeme.appdesiginformat.ui.TodoAddFragment;
 import com.potatomeme.appdesiginformat.ui.TodoUpdateFragment;
 
-public class UpdateActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
 
     FragmentManager fragmentManager;
-    DiaryUpdateFragment diaryUpdateFragment;
-    TodoUpdateFragment todoUpdateFragment;
+    DiaryAddFragment diaryUpdateFragment;
+    TodoAddFragment todoUpdateFragment;
 
 
 
@@ -42,10 +40,11 @@ public class UpdateActivity extends AppCompatActivity {
     private void init() {
         toolbar = findViewById(R.id.edit_toolBar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Add");
 
         fragmentManager = getSupportFragmentManager();
-        diaryUpdateFragment = new DiaryUpdateFragment();
-        todoUpdateFragment = new TodoUpdateFragment();
+        diaryUpdateFragment = new DiaryAddFragment();
+        todoUpdateFragment = new TodoAddFragment();
         fragmentManager.beginTransaction().replace(R.id.framelayout,diaryUpdateFragment).commit();
 
         button_submit = findViewById(R.id.submit_button);
