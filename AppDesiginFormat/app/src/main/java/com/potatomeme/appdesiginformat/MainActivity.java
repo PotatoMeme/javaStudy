@@ -7,15 +7,13 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.potatomeme.appdesiginformat.entity.Diary;
 import com.potatomeme.appdesiginformat.entity.Todo;
-import com.potatomeme.appdesiginformat.ui.CalendarFragment;
+import com.potatomeme.appdesiginformat.ui.TodoFragment;
 
 import java.util.ArrayList;
 
@@ -25,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     BottomNavigationView navigationView;
     FragmentManager fragmentManager;
-    CalendarFragment calendarFragment;
+    TodoFragment todoFragment;
 
     ArrayList<Diary> listDiary;
     ArrayList<Todo> listTodo;
@@ -45,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         dbSetting();
 
         fragmentManager = getSupportFragmentManager();
-        calendarFragment = new CalendarFragment();
-        fragmentManager.beginTransaction().replace(R.id.framelayout,calendarFragment).commit();
+        todoFragment = new TodoFragment();
+        fragmentManager.beginTransaction().replace(R.id.framelayout, todoFragment).commit();
 
         navigationView = findViewById(R.id.bottom_navigation);
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -55,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_SHORT).show();
                 switch (item.getItemId()){
                     case R.id.menu_todo:
-                        fragmentManager.beginTransaction().replace(R.id.framelayout,calendarFragment).commit();
+                        fragmentManager.beginTransaction().replace(R.id.framelayout, todoFragment).commit();
                         return true;
                     case R.id.menu_home:
                         return true;

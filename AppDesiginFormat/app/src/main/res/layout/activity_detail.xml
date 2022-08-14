@@ -20,11 +20,10 @@
             android:id="@+id/detail_toolBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.Light"
             app:title="Detail"
             app:titleCentered="true"
-            app:titleTextColor="@color/custom_gray"
-            app:theme="@style/ThemeOverlay.AppCompat.Light"
-            >
+            app:titleTextColor="@color/custom_gray">
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -43,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/custom_soil"
+        android:elevation="3dp"
         app:itemIconTint="@drawable/menu_selector_color"
         app:itemTextColor="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"

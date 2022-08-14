@@ -49,6 +49,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/bg_cactus_left"
                 android:fontFamily="@font/cafe24air"
+                android:elevation="3dp"
                 android:paddingLeft="40dp"
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"

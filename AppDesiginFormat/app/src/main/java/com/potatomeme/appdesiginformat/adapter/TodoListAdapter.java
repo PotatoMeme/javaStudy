@@ -11,11 +11,11 @@ import com.potatomeme.appdesiginformat.entity.Todo;
 
 import java.util.List;
 
-public class RecentListAdapter extends BaseAdapter {// to do adapter
+public class TodoListAdapter extends BaseAdapter {// to do adapter
 
     private List<Todo> mTodo;
 
-    public RecentListAdapter(List<Todo> mTodo) {
+    public TodoListAdapter(List<Todo> mTodo) {
         this.mTodo = mTodo;
     }
 
@@ -49,10 +49,10 @@ public class RecentListAdapter extends BaseAdapter {// to do adapter
         if (view == null) {
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.recent_item, viewGroup, false);
+                    .inflate(R.layout.todo_item, viewGroup, false);
 
-            TextView titleText = view.findViewById(R.id.recent_title);
-            TextView dateText = view.findViewById(R.id.recent_date);
+            TextView titleText = view.findViewById(R.id.list_title);
+            TextView dateText = view.findViewById(R.id.list_date);
             viewHolder.titleText = titleText;
             viewHolder.dateText = dateText;
             view.setTag(viewHolder);

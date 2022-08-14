@@ -19,6 +19,7 @@
                 android:id="@+id/calendarview"
                 android:layout_width="wrap_content"
                 android:layout_height="320dp"
+                android:elevation="5dp"
                 android:layout_alignParentLeft="true"
                 android:background="@drawable/bg_cactus_left" />
         </RelativeLayout>

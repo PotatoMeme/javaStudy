@@ -16,14 +16,14 @@
         android:textSize="20dp" />
 
     <TimePicker
-        android:layout_gravity="center"
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:backgroundTint="@color/custom_gray"
-        android:timePickerMode="spinner"
         android:calendarViewShown="false"
-        android:theme="@style/ThemeOverlay.AppCompat.Light" />
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:timePickerMode="spinner" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -39,18 +39,17 @@
             android:layout_toLeftOf="@+id/ok_button"
             android:background="@drawable/bg_carrot_right"
             android:fontFamily="@font/cafe24"
-
             android:outlineProvider="none"
             android:padding="10dp"
             android:text="Cancel" />
 
         <Button
-
             android:id="@+id/ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:background="@drawable/bg_cactus_right"
+            android:elevation="3dp"
             android:fontFamily="@font/cafe24"
             android:outlineProvider="none"
             android:text="ok" />

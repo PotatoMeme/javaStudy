@@ -83,6 +83,7 @@
                 android:id="@+id/select_date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="65dp"
+                android:elevation="3dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/bg_cactus_right"
                 android:fontFamily="@font/cafe24"
@@ -113,9 +114,10 @@
                 android:id="@+id/image_status"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:layout_marginStart="20dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
+                android:elevation="5dp"
                 android:background="@drawable/bg_back_right"
                 android:orientation="horizontal">
 
