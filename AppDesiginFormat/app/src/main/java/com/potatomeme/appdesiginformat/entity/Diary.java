@@ -8,15 +8,15 @@ public class Diary {
     @PrimaryKey(autoGenerate = true)
     private int seq;
 
-    private String date;
-    private int weather;
-    private int status;
+    private String date;//YYYYMMDD
+    private int weather;//0~4
+    private int status;//0~4
     private String title;
     private String content;
 
 
-
-    public Diary(String date,int weather, String title, String content,int status) {
+    public Diary(int seq, String date, int weather, int status, String title, String content) {
+        this.seq = seq;
         this.date = date;
         this.weather = weather;
         this.title = title;

@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.potatomeme.appdesiginformat.entity.Diary;
 import com.potatomeme.appdesiginformat.entity.Todo;
+import com.potatomeme.appdesiginformat.ui.DiaryFragment;
 import com.potatomeme.appdesiginformat.ui.TodoFragment;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     BottomNavigationView navigationView;
     FragmentManager fragmentManager;
+    DiaryFragment diaryFragment;
     TodoFragment todoFragment;
 
     ArrayList<Diary> listDiary;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         dbSetting();
 
         fragmentManager = getSupportFragmentManager();
+        diaryFragment = new DiaryFragment();
         todoFragment = new TodoFragment();
         fragmentManager.beginTransaction().replace(R.id.framelayout, todoFragment).commit();
 
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentManager.beginTransaction().replace(R.id.framelayout, todoFragment).commit();
                         return true;
                     case R.id.menu_home:
+                        fragmentManager.beginTransaction().replace(R.id.framelayout, diaryFragment).commit();
                         return true;
                     case R.id.menu_setting:
                         return true;
@@ -78,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         listTodo.add(new Todo(1,"sample date1","sample title1","sample content"));
         listTodo.add(new Todo(2,"sample date2","sample title2","sample content"));
         listTodo.add(new Todo(3,"sample date3","sample title3","sample content"));
+        listDiary = new ArrayList<Diary>();
+        for (int i = 0; i < 1; i++) {
+            listDiary.add(new Diary(i % 5, "sampleDate1", i % 5, i % 5, "sample title1", "sample content"));
+        }
     }
 
     public ArrayList<Diary> getListDiary() {

@@ -7,7 +7,7 @@ public class Todo {
     @PrimaryKey(autoGenerate = true)
     private int seq;
 
-    private String date;
+    private String date;//YYYYMMDDHHMM
     private String title;
     private String content;
 
@@ -17,6 +17,7 @@ public class Todo {
         this.title = title;
         this.content = content;
     }
+
 
     public int getSeq() {
         return seq;

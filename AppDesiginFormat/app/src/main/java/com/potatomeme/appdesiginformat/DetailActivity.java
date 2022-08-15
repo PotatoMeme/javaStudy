@@ -19,10 +19,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.google.android.material.navigation.NavigationBarView;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
 import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
+import com.potatomeme.appdesiginformat.ui.DiaryListFragment;
 import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
+import com.potatomeme.appdesiginformat.ui.TodoListFragment;
 
 public class DetailActivity extends AppCompatActivity {
+    int db_tag;
+    int seq;
     FragmentManager fragmentManager;
     TodoDetailFragment todoDetailFragment;
     DiaryDetailFragment diaryDetailFragment;
@@ -47,9 +52,19 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         fragmentManager = getSupportFragmentManager();
-        todoDetailFragment = new TodoDetailFragment();
-        diaryDetailFragment = new DiaryDetailFragment();
-        fragmentManager.beginTransaction().replace(R.id.framelayout,diaryDetailFragment).commit();
+        Intent get_intent = getIntent();
+        db_tag = get_intent.getIntExtra("db_tag", 0);
+        seq = get_intent.getIntExtra("seq",0);
+        switch (db_tag) {
+            case AppHelper.DIARY_TAG:
+                DiaryDetailFragment diaryDetailFragment = new DiaryDetailFragment();
+                fragmentManager.beginTransaction().replace(R.id.framelayout, diaryDetailFragment).commit();
+                break;
+            case AppHelper.TODO_TAG:
+                TodoDetailFragment todoDetailFragment = new TodoDetailFragment();
+                fragmentManager.beginTransaction().replace(R.id.framelayout, todoDetailFragment).commit();
+                break;
+        }
 
         navigationView = findViewById(R.id.bottom_navigation);
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -58,6 +73,8 @@ public class DetailActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menu_update:
                         Intent intent = new Intent(getApplicationContext(),UpdateActivity.class);
+                        intent.putExtra("db_tag", db_tag);
+                        intent.putExtra("seq",seq);
                         startActivity(intent);
                         return true;
                     default:
@@ -71,6 +88,10 @@ public class DetailActivity extends AppCompatActivity {
         deleteDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
+    }
+
+    public int getSeq() {
+        return seq;
     }
 
     @Override

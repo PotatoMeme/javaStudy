@@ -22,6 +22,7 @@ public class DiaryListAdapter extends BaseAdapter {// to do adapter
     private List<Diary> mDiary;
 
     private int[] statusImages;
+    private int[] weatherBack;
 
     public DiaryListAdapter(Context context, List<Diary> mDiary) {
         mContext = context;
@@ -31,6 +32,11 @@ public class DiaryListAdapter extends BaseAdapter {// to do adapter
                 R.drawable.ic_status_3,
                 R.drawable.ic_status_4,
                 R.drawable.ic_status_5};
+        weatherBack = new int[]{R.drawable.bg_weather01_right,
+                R.drawable.bg_weather02_right,
+                R.drawable.bg_weather03_right,
+                R.drawable.bg_weather04_right,
+                R.drawable.bg_weather05_right};
     }
 
     public void addItem(Diary diary) {
@@ -83,23 +89,7 @@ public class DiaryListAdapter extends BaseAdapter {// to do adapter
 
 
         Diary diary = mDiary.get(i);
-        switch (diary.getWeather()) {
-            case 0:
-                viewHolder.layout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.custom_weather_1));
-                break;
-            case 1:
-                viewHolder.layout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.custom_weather_2));
-                break;
-            case 2:
-                viewHolder.layout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.custom_gray));
-                break;
-            case 3:
-                viewHolder.layout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.custom_weather_4));
-                break;
-            case 4:
-                viewHolder.layout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.custom_weather_5));
-                break;
-        }
+        viewHolder.layout.setBackground(ContextCompat.getDrawable(mContext,weatherBack[diary.getWeather()]));
         viewHolder.statusImage.setImageResource(statusImages[diary.getStatus()]);
         viewHolder.titleText.setText(diary.getTitle());
         viewHolder.dateText.setText(diary.getDate());

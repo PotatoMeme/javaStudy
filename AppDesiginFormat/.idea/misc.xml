@@ -15,6 +15,11 @@
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_pink_round.xml" value="0.2705" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_recentitem.xml" value="0.367" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_red_round.xml" value="0.1715" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_weather02_right.xml" value="0.146" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_weather03_right.xml" value="0.146" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_weather04_right.xml" value="0.146" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_weather05_right.xml" value="0.146" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_weather_right.xml" value="0.146" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/bg_white_round.xml" value="0.1" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/home_ic.xml" value="0.367" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/drawable/ic_add.xml" value="0.1485" />
@@ -36,7 +41,9 @@
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/diary_item.xml" value="0.36614583333333334" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_calander.xml" value="0.307518115942029" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_calendar.xml" value="0.33" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_diary.xml" value="0.35190217391304346" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_diary_detail.xml" value="0.25" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_diary_list.xml" value="0.36614583333333334" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_diary_update.xml" value="0.33" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_todo.xml" value="0.35733695652173914" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/fragment_todo_detail.xml" value="0.25" />
@@ -48,6 +55,7 @@
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/popup_time.xml" value="0.36614583333333334" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/recent_item.xml" value="0.33" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/spinner_item.xml" value="0.35733695652173914" />
+        <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/layout/todo_item.xml" value="0.3161231884057971" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/menu/bottom_detail_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/menu/bottom_main_menu.xml" value="0.2638888888888889" />
         <entry key="..\:/D/AndroidProjects/AppDesiginFormat/app/src/main/res/menu/bottom_menu.xml" value="0.36614583333333334" />

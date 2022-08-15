@@ -1,5 +1,6 @@
 package com.potatomeme.appdesiginformat.ui;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -19,20 +20,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.potatomeme.appdesiginformat.AddActivity;
 import com.potatomeme.appdesiginformat.R;
 import com.potatomeme.appdesiginformat.UpdateActivity;
 
 public class TodoAddFragment extends Fragment {
 
     ViewGroup rootView;
-    UpdateActivity updateActivity;
+    AddActivity addActivity;
     String date;
     String time;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        updateActivity = (UpdateActivity) getActivity();
+        addActivity = (AddActivity) getActivity();
     }
 
     @Nullable
@@ -103,6 +105,6 @@ public class TodoAddFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        updateActivity = null;
+        addActivity = null;
     }
 }

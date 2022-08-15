@@ -21,19 +21,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.potatomeme.appdesiginformat.entity.Diary;
 import com.potatomeme.appdesiginformat.entity.Todo;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
 import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
+import com.potatomeme.appdesiginformat.ui.DiaryListFragment;
 import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
 import com.potatomeme.appdesiginformat.ui.TodoListFragment;
 
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+
+    int db_tag;
     FragmentManager fragmentManager;
-    TodoListFragment todoListFragment;
     Toolbar toolbar;
-
     FloatingActionButton fab;
-
     ArrayList<Diary> listDiary;
     ArrayList<Todo> listTodo;
 
@@ -52,12 +53,23 @@ public class ListActivity extends AppCompatActivity {
         }
 
         fragmentManager = getSupportFragmentManager();
-        todoListFragment = new TodoListFragment();
-        fragmentManager.beginTransaction().replace(R.id.framelayout, todoListFragment).commit();
+        Intent get_intent = getIntent();
+        db_tag = get_intent.getIntExtra("db_tag", 0);
+        switch (db_tag) {
+            case AppHelper.DIARY_TAG:
+                DiaryListFragment diaryListFragment = new DiaryListFragment();
+                fragmentManager.beginTransaction().replace(R.id.framelayout, diaryListFragment).commit();
+                break;
+            case AppHelper.TODO_TAG:
+                TodoListFragment todoListFragment = new TodoListFragment();
+                fragmentManager.beginTransaction().replace(R.id.framelayout, todoListFragment).commit();
+                break;
+        }
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), AddActivity.class);
+            intent.putExtra("db_tag", db_tag);
             startActivity(intent);
         });
 
@@ -75,6 +87,7 @@ public class ListActivity extends AppCompatActivity {
                 return false;
         }
     }
+
 
     private void dbSetting() {
         listTodo = new ArrayList<Todo>();
@@ -96,6 +109,12 @@ public class ListActivity extends AppCompatActivity {
         listTodo.add(new Todo(1, "sample date1", "sample title1", "sample content"));
         listTodo.add(new Todo(2, "sample date2", "sample title2", "sample content"));
         listTodo.add(new Todo(3, "sample date3", "sample title3", "sample content"));
+
+        listDiary = new ArrayList<Diary>();
+        for (int i = 0; i < 30; i++) {
+            listDiary.add(new Diary(i % 5, "sampleDate1", i % 5, i % 5, "sample title1", "sample content"));
+        }
+
     }
 
     public ArrayList<Diary> getListDiary() {

@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,13 +20,15 @@ import com.potatomeme.appdesiginformat.DetailActivity;
 import com.potatomeme.appdesiginformat.ListActivity;
 import com.potatomeme.appdesiginformat.MainActivity;
 import com.potatomeme.appdesiginformat.R;
+import com.potatomeme.appdesiginformat.adapter.DiaryListAdapter;
 import com.potatomeme.appdesiginformat.adapter.TodoListAdapter;
+import com.potatomeme.appdesiginformat.entity.Diary;
 import com.potatomeme.appdesiginformat.entity.Todo;
 import com.potatomeme.appdesiginformat.helper.AppHelper;
 
 import java.util.ArrayList;
 
-public class TodoFragment extends Fragment {
+public class DiaryFragment extends Fragment {
 
     ViewGroup rootView;
 
@@ -35,8 +36,8 @@ public class TodoFragment extends Fragment {
     Button button_plus,button_seeall;
 
     ListView listView;
-    ArrayList<Todo> listTodo;
-    TodoListAdapter adapter;
+    ArrayList<Diary> listDiary;
+    DiaryListAdapter adapter;
 
     MainActivity mainActivity;
     String date;
@@ -51,12 +52,12 @@ public class TodoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todo,container,false);
+        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_diary,container,false);
 
         button_plus = rootView.findViewById(R.id.calendar_plus);
         button_plus.setOnClickListener(view -> {
             Intent intent = new Intent(container.getContext(), AddActivity.class);
-            intent.putExtra("db_tag", AppHelper.TODO_TAG);
+            intent.putExtra("db_tag", AppHelper.DIARY_TAG);
             intent.putExtra("date",date);
             startActivity(intent);
         });
@@ -64,7 +65,7 @@ public class TodoFragment extends Fragment {
         button_seeall = rootView.findViewById(R.id.calendar_seeall);
         button_seeall.setOnClickListener(view -> {
             Intent intent = new Intent(container.getContext(), ListActivity.class);
-            intent.putExtra("db_tag", AppHelper.TODO_TAG);
+            intent.putExtra("db_tag", AppHelper.DIARY_TAG);
             startActivity(intent);
         });
 
@@ -75,8 +76,8 @@ public class TodoFragment extends Fragment {
 
     private void listViewSetting(ViewGroup container) {
         listView = rootView.findViewById(R.id.calendar_recentlist);
-        listTodo = mainActivity.getListTodo();
-        adapter = new TodoListAdapter(listTodo);
+        listDiary = mainActivity.getListDiary();
+        adapter = new DiaryListAdapter(container.getContext(),listDiary);
 
         // height setting
         int totalHeight = 0;
@@ -98,8 +99,8 @@ public class TodoFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(container.getContext(), DetailActivity.class);
-                intent.putExtra("db_tag", AppHelper.TODO_TAG);
-                intent.putExtra("seq",listTodo.get(i).getSeq());
+                intent.putExtra("db_tag", AppHelper.DIARY_TAG);
+                intent.putExtra("seq",listDiary.get(i).getSeq());
                 startActivity(intent);
             }
         });
@@ -112,8 +113,8 @@ public class TodoFragment extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 date = i+""+(i1>9?i1:"0"+i1)+""+(i2>9?i2:"0"+i2);
-                listTodo = mainActivity.getListTodo();
-                adapter.changeItems(listTodo);
+                listDiary = mainActivity.getListDiary();
+                adapter.changeItems(listDiary);
                 listView.setAdapter(adapter);
             }
         });
