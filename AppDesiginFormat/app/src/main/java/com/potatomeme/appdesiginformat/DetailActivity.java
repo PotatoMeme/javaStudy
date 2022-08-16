@@ -10,20 +10,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.DatePicker;
 
 import com.google.android.material.navigation.NavigationBarView;
-import com.potatomeme.appdesiginformat.helper.AppHelper;
+import com.potatomeme.appdesiginformat.helper.DbHelper;
 import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
-import com.potatomeme.appdesiginformat.ui.DiaryListFragment;
 import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
-import com.potatomeme.appdesiginformat.ui.TodoListFragment;
 
 public class DetailActivity extends AppCompatActivity {
     int db_tag;
@@ -34,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     NavigationBarView navigationView;
     Dialog deleteDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +41,18 @@ public class DetailActivity extends AppCompatActivity {
     private void init() {
         toolbar = findViewById(R.id.detail_toolBar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() == null){
-            Log.d("detail","getSurportActionBar is null");
-        }
-        if(getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fragmentManager = getSupportFragmentManager();
         Intent get_intent = getIntent();
         db_tag = get_intent.getIntExtra("db_tag", 0);
-        seq = get_intent.getIntExtra("seq",0);
+        seq = get_intent.getIntExtra("seq", 0);
         switch (db_tag) {
-            case AppHelper.DIARY_TAG:
+            case DbHelper.DIARY_TAG:
                 DiaryDetailFragment diaryDetailFragment = new DiaryDetailFragment();
                 fragmentManager.beginTransaction().replace(R.id.framelayout, diaryDetailFragment).commit();
                 break;
-            case AppHelper.TODO_TAG:
+            case DbHelper.TODO_TAG:
                 TodoDetailFragment todoDetailFragment = new TodoDetailFragment();
                 fragmentManager.beginTransaction().replace(R.id.framelayout, todoDetailFragment).commit();
                 break;
@@ -70,11 +62,11 @@ public class DetailActivity extends AppCompatActivity {
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_update:
-                        Intent intent = new Intent(getApplicationContext(),UpdateActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), UpdateActivity.class);
                         intent.putExtra("db_tag", db_tag);
-                        intent.putExtra("seq",seq);
+                        intent.putExtra("seq", seq);
                         startActivity(intent);
                         return true;
                     default:
@@ -97,13 +89,13 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.top_detail_menu,menu);
+        inflater.inflate(R.menu.top_detail_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;
@@ -116,7 +108,11 @@ public class DetailActivity extends AppCompatActivity {
                 });
                 Button button_ok = deleteDialog.findViewById(R.id.ok_button);
                 button_ok.setOnClickListener(view1 -> {
-                    deleteDialog.dismiss();
+                    if (db_tag == DbHelper.TODO_TAG)
+                        DbHelper.deleteTodo(DbHelper.findTodo(seq));
+                    else if (db_tag == DbHelper.DIARY_TAG)
+                        DbHelper.deleteDiary(DbHelper.findDiary(seq));
+                    finish();
                 });
                 return true;
             default:

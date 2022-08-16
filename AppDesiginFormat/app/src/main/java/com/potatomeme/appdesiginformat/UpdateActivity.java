@@ -7,20 +7,13 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationBarView;
-import com.potatomeme.appdesiginformat.helper.AppHelper;
-import com.potatomeme.appdesiginformat.ui.DiaryDetailFragment;
-import com.potatomeme.appdesiginformat.ui.DiaryListFragment;
+import com.potatomeme.appdesiginformat.helper.DbHelper;
 import com.potatomeme.appdesiginformat.ui.DiaryUpdateFragment;
-import com.potatomeme.appdesiginformat.ui.TodoDetailFragment;
-import com.potatomeme.appdesiginformat.ui.TodoListFragment;
 import com.potatomeme.appdesiginformat.ui.TodoUpdateFragment;
 
 public class UpdateActivity extends AppCompatActivity {
@@ -53,18 +46,26 @@ public class UpdateActivity extends AppCompatActivity {
         db_tag = get_intent.getIntExtra("db_tag", 0);
         seq = get_intent.getIntExtra("seq",0);
         switch (db_tag) {
-            case AppHelper.DIARY_TAG:
-                DiaryUpdateFragment diaryUpdateFragment = new DiaryUpdateFragment();
+            case DbHelper.DIARY_TAG:
+                diaryUpdateFragment = new DiaryUpdateFragment();
                 fragmentManager.beginTransaction().replace(R.id.framelayout, diaryUpdateFragment).commit();
                 break;
-            case AppHelper.TODO_TAG:
-                TodoUpdateFragment todoUpdateFragment = new TodoUpdateFragment();
+            case DbHelper.TODO_TAG:
+                todoUpdateFragment = new TodoUpdateFragment();
                 fragmentManager.beginTransaction().replace(R.id.framelayout, todoUpdateFragment).commit();
                 break;
         }
 
         button_submit = findViewById(R.id.submit_button);
         button_submit.setOnClickListener(view -> {
+            switch (db_tag) {
+                case DbHelper.DIARY_TAG:
+
+                    break;
+                case DbHelper.TODO_TAG:
+                    DbHelper.updateTodo(todoUpdateFragment.getTodo());
+                    break;
+            }
             finish();
         });
     }

@@ -11,7 +11,14 @@ public class Todo {
     private String title;
     private String content;
 
-    public Todo(int seq, String date, String title, String content) {
+    /*public To do(int seq, String date, String title, String content) {
+        this.seq = seq;
+        this.date = date;
+        this.title = title;
+        this.content = content;
+    }*/
+
+    public Todo(String date, String title, String content) {
         this.seq = seq;
         this.date = date;
         this.title = title;

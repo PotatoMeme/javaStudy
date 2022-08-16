@@ -23,13 +23,21 @@ import androidx.fragment.app.Fragment;
 import com.potatomeme.appdesiginformat.AddActivity;
 import com.potatomeme.appdesiginformat.R;
 import com.potatomeme.appdesiginformat.UpdateActivity;
+import com.potatomeme.appdesiginformat.entity.Todo;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
 
 public class TodoAddFragment extends Fragment {
 
     ViewGroup rootView;
     AddActivity addActivity;
+
     String date;
     String time;
+
+    EditText title_edit;
+    EditText date_edit;
+    EditText time_edit;
+    EditText content_edit;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -43,10 +51,10 @@ public class TodoAddFragment extends Fragment {
 
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_todo_update, container, false);
         Log.d("todoUpdateFragment", "onCreateView");
-        EditText title_edit = rootView.findViewById(R.id.todo_title_edit);
-        EditText date_edit = rootView.findViewById(R.id.todo_date_edit);
-        EditText time_edit = rootView.findViewById(R.id.todo_time_edit);
-        EditText content_edit = rootView.findViewById(R.id.todo_content_edit);
+        title_edit = rootView.findViewById(R.id.todo_title_edit);
+        date_edit = rootView.findViewById(R.id.todo_date_edit);
+        time_edit = rootView.findViewById(R.id.todo_time_edit);
+        content_edit = rootView.findViewById(R.id.todo_content_edit);
 
 
         //dateDialog
@@ -67,8 +75,8 @@ public class TodoAddFragment extends Fragment {
             });
             Button button_ok = dateDialog.findViewById(R.id.ok_button);
             button_ok.setOnClickListener(view1 -> {
-                date = datePicker.getYear() + "년" + datePicker.getMonth() + "월" + datePicker.getDayOfMonth() + "일";
-                date_edit.setText(date);
+                date = String.format("%d%02d%02d", datePicker.getYear(), (datePicker.getMonth() + 1), datePicker.getDayOfMonth());
+                date_edit.setText(AppHelper.parsingDate(date));
                 dateDialog.dismiss();
             });
         });
@@ -90,8 +98,8 @@ public class TodoAddFragment extends Fragment {
             });
             Button button_ok = timeDialog.findViewById(R.id.ok_button);
             button_ok.setOnClickListener(view1 -> {
-                time = timePicker.getHour()+"시"+timePicker.getMinute()+"분";
-                time_edit.setText(time);
+                time = String.format("%02d%02d",timePicker.getHour(),timePicker.getMinute());
+                time_edit.setText(AppHelper.parsingTime(time));
                 timeDialog.dismiss();
             });
 
@@ -100,7 +108,18 @@ public class TodoAddFragment extends Fragment {
         return rootView;
     }
 
+    public Todo getTodo(){
+        Todo todo = new Todo(date+time,title_edit.getText().toString(),content_edit.getText().toString());
+        return todo;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        date = addActivity.getDate();
+        if (date != null)
+            date_edit.setText(AppHelper.parsingDate(date));
+    }
 
     @Override
     public void onDetach() {

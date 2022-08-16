@@ -8,17 +8,18 @@ import androidx.room.Update;
 
 import com.potatomeme.appdesiginformat.entity.Diary;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface DiaryRepository {
-    @Query("SELECT * FROM diary")
+    @Query("SELECT * FROM diary Order By date")
     List<Diary> findAll();
 
     @Query("SELECT * FROM diary Where seq=:seq")
     Diary findById(int seq);
 
-    @Query("SELECT * FROM diary Where date=:date")
+    @Query("SELECT * FROM diary Where date=:date Order By date")
     List<Diary> findByDate(String date);
 
     @Insert
@@ -29,5 +30,8 @@ public interface DiaryRepository {
 
     @Update
     void update(Diary diary);
+
+
+
 }
 

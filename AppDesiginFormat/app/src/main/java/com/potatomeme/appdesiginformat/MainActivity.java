@@ -12,11 +12,13 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.potatomeme.appdesiginformat.entity.Diary;
-import com.potatomeme.appdesiginformat.entity.Todo;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
+import com.potatomeme.appdesiginformat.helper.DbHelper;
 import com.potatomeme.appdesiginformat.ui.DiaryFragment;
 import com.potatomeme.appdesiginformat.ui.TodoFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,14 +29,10 @@ public class MainActivity extends AppCompatActivity {
     DiaryFragment diaryFragment;
     TodoFragment todoFragment;
 
-    ArrayList<Diary> listDiary;
-    ArrayList<Todo> listTodo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
     }
 
@@ -78,22 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void dbSetting() {
-        listTodo = new ArrayList<Todo>();
-        listTodo.add(new Todo(1,"sample date1","sample title1","sample content"));
-        listTodo.add(new Todo(2,"sample date2","sample title2","sample content"));
-        listTodo.add(new Todo(3,"sample date3","sample title3","sample content"));
-        listDiary = new ArrayList<Diary>();
-        for (int i = 0; i < 1; i++) {
-            listDiary.add(new Diary(i % 5, "sampleDate1", i % 5, i % 5, "sample title1", "sample content"));
-        }
-    }
-
-    public ArrayList<Diary> getListDiary() {
-        return listDiary;
-    }
-
-    public ArrayList<Todo> getListTodo() {
-        return listTodo;
+        DbHelper.dbSetting(getApplicationContext());
     }
 
 }

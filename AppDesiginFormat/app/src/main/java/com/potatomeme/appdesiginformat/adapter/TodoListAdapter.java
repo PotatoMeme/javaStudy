@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.potatomeme.appdesiginformat.R;
 import com.potatomeme.appdesiginformat.entity.Todo;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
 
 import java.util.List;
 
@@ -62,7 +63,9 @@ public class TodoListAdapter extends BaseAdapter {// to do adapter
 
         Todo todo = mTodo.get(i);
         viewHolder.titleText.setText(todo.getTitle());
-        viewHolder.dateText.setText(todo.getDate());
+        String date = todo.getDate().substring(0,8);
+        String time = todo.getDate().substring(8);
+        viewHolder.dateText.setText(AppHelper.parsingDate(date)+" "+AppHelper.parsingTime(time));
         return view;
     }
 

@@ -15,7 +15,16 @@ public class Diary {
     private String content;
 
 
-    public Diary(int seq, String date, int weather, int status, String title, String content) {
+    /*public Diary(int seq, String date, int weather, int status, String title, String content) {
+        this.seq = seq;
+        this.date = date;
+        this.weather = weather;
+        this.title = title;
+        this.content = content;
+        this.status = status;
+    }*/
+
+    public Diary(String date, int weather, int status, String title, String content) {
         this.seq = seq;
         this.date = date;
         this.weather = weather;

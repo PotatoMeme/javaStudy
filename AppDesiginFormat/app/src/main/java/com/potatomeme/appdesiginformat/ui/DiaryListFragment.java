@@ -18,16 +18,17 @@ import com.potatomeme.appdesiginformat.ListActivity;
 import com.potatomeme.appdesiginformat.R;
 import com.potatomeme.appdesiginformat.adapter.DiaryListAdapter;
 import com.potatomeme.appdesiginformat.entity.Diary;
-import com.potatomeme.appdesiginformat.helper.AppHelper;
+import com.potatomeme.appdesiginformat.helper.DbHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DiaryListFragment extends Fragment {
 
     ViewGroup rootView;
 
     ListView listView;
-    ArrayList<Diary> listDiary;
+    List<Diary> listDiary;
     DiaryListAdapter adapter;
 
     ListActivity listActivity;
@@ -52,7 +53,7 @@ public class DiaryListFragment extends Fragment {
 
     private void listViewSetting(ViewGroup container) {
         listView = rootView.findViewById(R.id.diary_list);
-        listDiary = listActivity.getListDiary();
+        listDiary = DbHelper.findAllDiary();
         adapter = new DiaryListAdapter(container.getContext(), listDiary);
 
         // height setting
@@ -73,7 +74,7 @@ public class DiaryListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(container.getContext(), DetailActivity.class);
-                intent.putExtra("db_tag", AppHelper.DIARY_TAG);
+                intent.putExtra("db_tag", DbHelper.DIARY_TAG);
                 intent.putExtra("seq",listDiary.get(i).getSeq());
                 startActivity(intent);
             }
