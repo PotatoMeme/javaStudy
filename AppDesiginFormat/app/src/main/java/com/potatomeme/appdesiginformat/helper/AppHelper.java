@@ -1,5 +1,7 @@
 package com.potatomeme.appdesiginformat.helper;
 
+import com.potatomeme.appdesiginformat.R;
+
 import java.text.SimpleDateFormat;
 
 public class AppHelper {
@@ -14,6 +16,7 @@ public class AppHelper {
         date = String.format("%s년 %s월 %s일", year, month, day);
         return date;
     }
+
     public static String parsingTime(String time) {
         String hour = time.substring(0, 2);
         hour = Integer.parseInt(hour) > 9 ? hour : hour.substring(1);
@@ -22,4 +25,15 @@ public class AppHelper {
         time = String.format("%s시 %s분", hour, minute);
         return time;
     }
+
+    public static String[] weathertoString = new String[]{
+            "맑음", "조금흐림", "흐림", "비", "눈"
+    };
+    public static int[] statusToId = new int[]{
+            R.drawable.ic_status_1,
+            R.drawable.ic_status_2,
+            R.drawable.ic_status_3,
+            R.drawable.ic_status_4,
+            R.drawable.ic_status_5
+    };
 }

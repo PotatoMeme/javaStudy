@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,29 +14,51 @@ import androidx.fragment.app.Fragment;
 
 import com.potatomeme.appdesiginformat.DetailActivity;
 import com.potatomeme.appdesiginformat.R;
+import com.potatomeme.appdesiginformat.entity.Diary;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
+import com.potatomeme.appdesiginformat.helper.DbHelper;
 
 public class DiaryDetailFragment extends Fragment {
 
     ViewGroup rootView;
     DetailActivity detailActivity;
 
+    TextView date_text;
+
+    ImageView status_image;
+    TextView weather_text;
+    TextView title_text;
+    TextView content_text;
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-         detailActivity = (DetailActivity) getActivity();
+        detailActivity = (DetailActivity) getActivity();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_diary_detail,container,false);
-        TextView date_text = rootView.findViewById(R.id.diary_date_text);
-        TextView status_text = rootView.findViewById(R.id.diary_status);
-        TextView weather_text = rootView.findViewById(R.id.diary_weather);
-        TextView title_text = rootView.findViewById(R.id.diary_title_text);
-        TextView content_text = rootView.findViewById(R.id.diary_content_text);
+        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_diary_detail, container, false);
+        date_text = rootView.findViewById(R.id.diary_date_text);
+        status_image = rootView.findViewById(R.id.diary_status);
+        weather_text = rootView.findViewById(R.id.diary_weather);
+        title_text = rootView.findViewById(R.id.diary_title_text);
+        content_text = rootView.findViewById(R.id.diary_content_text);
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        int seq = detailActivity.getSeq();
+        Diary diary = DbHelper.findDiary(seq);
+        date_text.setText(AppHelper.parsingDate(diary.getDate()));
+        status_image.setImageResource(AppHelper.statusToId[diary.getStatus()]);
+        weather_text.setText(AppHelper.weathertoString[diary.getWeather()]);
+        title_text.setText(diary.getTitle());
+        content_text.setText(diary.getContent());
     }
 
     @Override

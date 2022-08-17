@@ -59,7 +59,7 @@ public class AddActivity extends AppCompatActivity {
         button_submit.setOnClickListener(view -> {
             switch (db_tag) {
                 case DbHelper.DIARY_TAG:
-
+                    DbHelper.insertDiary(diaryAddFragment.getDiary());
                     break;
                 case DbHelper.TODO_TAG:
                     DbHelper.insertTodo(todoAddFragment.getTodo());

@@ -62,11 +62,8 @@ public class TodoAddFragment extends Fragment {
         dateDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dateDialog.setContentView(R.layout.popup_date);
         dateDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         Button date_select_button = rootView.findViewById(R.id.select_date_button);
-
         date_select_button.setOnClickListener((view) -> {
-
             dateDialog.show();
             DatePicker datePicker = dateDialog.findViewById(R.id.date_picker);
             Button button_cancel = dateDialog.findViewById(R.id.cancel_button);
@@ -86,8 +83,6 @@ public class TodoAddFragment extends Fragment {
         timeDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         timeDialog.setContentView(R.layout.popup_time);
         timeDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
         Button time_select_button = rootView.findViewById(R.id.select_time_button);
         time_select_button.setOnClickListener(view -> {
             timeDialog.show();
@@ -102,9 +97,7 @@ public class TodoAddFragment extends Fragment {
                 time_edit.setText(AppHelper.parsingTime(time));
                 timeDialog.dismiss();
             });
-
         });
-
         return rootView;
     }
 

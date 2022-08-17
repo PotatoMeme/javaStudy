@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 
 import com.potatomeme.appdesiginformat.R;
 import com.potatomeme.appdesiginformat.entity.Diary;
+import com.potatomeme.appdesiginformat.helper.AppHelper;
 
 import java.util.List;
 
@@ -27,11 +28,7 @@ public class DiaryListAdapter extends BaseAdapter {// to do adapter
     public DiaryListAdapter(Context context, List<Diary> mDiary) {
         mContext = context;
         this.mDiary = mDiary;
-        statusImages = new int[]{R.drawable.ic_status_1,
-                R.drawable.ic_status_2,
-                R.drawable.ic_status_3,
-                R.drawable.ic_status_4,
-                R.drawable.ic_status_5};
+        statusImages = AppHelper.statusToId;
         weatherBack = new int[]{R.drawable.bg_weather01_right,
                 R.drawable.bg_weather02_right,
                 R.drawable.bg_weather03_right,
@@ -86,7 +83,6 @@ public class DiaryListAdapter extends BaseAdapter {// to do adapter
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-
 
         Diary diary = mDiary.get(i);
         viewHolder.layout.setBackground(ContextCompat.getDrawable(mContext,weatherBack[diary.getWeather()]));

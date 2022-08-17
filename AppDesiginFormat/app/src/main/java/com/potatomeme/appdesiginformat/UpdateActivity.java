@@ -60,7 +60,7 @@ public class UpdateActivity extends AppCompatActivity {
         button_submit.setOnClickListener(view -> {
             switch (db_tag) {
                 case DbHelper.DIARY_TAG:
-
+                    DbHelper.updateDiary(diaryUpdateFragment.getDiary());
                     break;
                 case DbHelper.TODO_TAG:
                     DbHelper.updateTodo(todoUpdateFragment.getTodo());
