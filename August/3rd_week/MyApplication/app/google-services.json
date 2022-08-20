@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "229209090473",
-    "project_id": "banded-splicer-354609",
-    "storage_bucket": "banded-splicer-354609.appspot.com"
+    "project_number": "205213909102",
+    "project_id": "whyitisnotrunning",
+    "storage_bucket": "whyitisnotrunning.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:229209090473:android:eb3b05b10da818f00ffcb8",
+        "mobilesdk_app_id": "1:205213909102:android:9ac4b4853d047d4e28667f",
         "android_client_info": {
           "package_name": "com.potatomeme.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "229209090473-e7g6hp3ccspr8tg8tufp78f0qe01h9a3.apps.googleusercontent.com",
+          "client_id": "205213909102-8bc7uoqif44m3uhaue5sn1ageja72f7d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.potatomeme.myapplication",
@@ -22,20 +22,20 @@
           }
         },
         {
-          "client_id": "229209090473-s0513mhqhuo6mj1mpggronjn4sffcf3i.apps.googleusercontent.com",
+          "client_id": "205213909102-hkvvsfdakeucu2gtc5usndtoa9p6lgf7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB78nw6IUpEOjNlJKJ3_S8lT6Pl5rI_xXo"
+          "current_key": "AIzaSyBa3odY6CvZD07KQ5lj2VkUpwa2mnANdRc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "229209090473-s0513mhqhuo6mj1mpggronjn4sffcf3i.apps.googleusercontent.com",
+              "client_id": "205213909102-hkvvsfdakeucu2gtc5usndtoa9p6lgf7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
