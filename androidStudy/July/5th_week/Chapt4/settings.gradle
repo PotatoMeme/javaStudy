@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Chapt4"
+include ':app'
+include ':fragment'
+include ':fragmenttoimage'
+include ':actionbar'
+include ':tab'
+include ':actionbar:viewpager'
+include ':viewpager'
+include ':navigation'
+include ':end'

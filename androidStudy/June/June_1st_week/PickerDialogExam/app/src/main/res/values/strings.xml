@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PickerDialogExam</string>
+    <string name="app_result_format">Result : %s</string>
+</resources>

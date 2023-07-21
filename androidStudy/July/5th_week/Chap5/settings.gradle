@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Chap5"
+include ':app'
+include ':thread'
+include ':asynctask'
+include ':socket'
+include ':server'
+include ':webrequest'
+include ':volley'
+include ':json'
+include ':imagedownloader'
+include ':movieapi'
