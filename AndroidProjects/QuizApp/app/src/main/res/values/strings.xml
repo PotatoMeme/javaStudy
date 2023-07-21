@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="act2_btn_text">확인</string>
+    <string-array name="question_array">
+        <item>
+            타이타닉의 구명 보트에는 몇 명이 탈수 있을까?
+        </item>
+        <item>
+            서울시민 모두가 동시에 외치면 무슨 말이 될까?
+        </item>
+        <item>
+            금은 금인데 도둑고양이에게 가장 어울리는 금은?
+        </item>
+        <item>
+            고기 먹을 때마다 따라오는 개는?
+        </item>
+        <item>
+           별 중에 가장 슬픈 별은?
+        </item>
+        <item>
+            진짜 새의 이름은 무엇일까요?
+        </item>
+        <item>
+            붉은 길에 동전 하나가 떨어져 있다. 그 동전의 이름은?
+        </item>
+        <item>
+            사람의 몸무게가 가장 많이 나갈 때는?
+        </item>
+    </string-array>
+    <string-array name="result_array">
+        <item>
+            9명
+        </item>
+        <item>
+            천만의 말씀
+        </item>
+        <item>
+            야금야금
+        </item>
+        <item>
+            이쑤시개
+        </item>
+        <item>
+            이별
+        </item>
+        <item>
+            참새
+        </item>
+        <item>
+            홍길동전
+        </item>
+        <item>
+            철들 때
+        </item>
+    </string-array>
+</resources>
